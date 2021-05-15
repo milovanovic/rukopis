@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Увод &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Функционално програмирање" href="2-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B5.html" />
+    <link rel="prev" title="Тумачење рачунарских програма" href="index.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="2-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B5.html" title="Функционално програмирање"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Тумачење рачунарских програма"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Тумачење рачунарских програма</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Увод</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="id1"></span><h1>Увод<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Прва два поглавља описују уску везу између два основна елемента програмирања: функција и података. Приказано је како се функцијама може манипулисати подацима помоћу функција вишег реда. Такође је приказано и како подаци могу бити обдарени различитим понашањима помоћу преношења порука и објектног система. Такође су проучаване технике за организовање великих и сложених програма, као што су функционална апстракција, апстракција података, наслеђивање класа и генеричке функције. Ови кључни концепти чине снажну основу на којој се могу градити модуларни, одрживи и прошириви програми.</p>
+<p>Ово поглавље се фокусира на трећи основни елемент програмирања: саме програме. Пајтон програм је само колекција текста. Само кроз поступак тумачења врше се било каква значајна израчунавања заснована на том тексту. Програмски језик као што је Пајтон користан је јер се може дефинисати <em>интерпретатор</em>, програм који извршава Пајтонова вредновања и процедуре извршавања. Није претерано ако се ово сматра најосновнијом идејом у програмирању, да је интерпретатор, који одређује значење израза у програмском језику, само још један програм.</p>
+<p>Ценити ову поенту значи променити слику о себи као програмерима. Долазимо до једне нове улоге, а то је да себе доживљавамо као пројектанте језика, а не само као кориснике језика које су пројектовали други.</p>
+<div class="section" id="programminglanguages">
+<span id="id2"></span><h2>Програмски језици<a class="headerlink" href="#programminglanguages" title="Permalink to this headline">¶</a></h2>
+<p>Програмски језици се прилично разликују у својим синтаксним структурама, особинама и домену примене. Међу програмским језицима опште намене, конструкти дефиниције функције и примене функције су свеприсутни. С друге стране, постоје моћни језици који не укључују објектни систем, функције вишег реда, додељивање или чак контролне конструкције као што су <code class="docutils literal notranslate"><span class="pre">while</span></code> и <code class="docutils literal notranslate"><span class="pre">for</span></code> петље. Као пример врло моћног језика са минималним скупом својстава, биће представљен <a class="reference external" href="https://sr.wikipedia.org/wiki/Ским_(програмски_језик)">програмски језик Ским</a>. Подскуп Скима уведен у овом тексту уопште не дозвољава променљиве вредности.</p>
+<p>У овом поглављу проучава се пројектовање интерпретатора и рачунских поступака које они стварају приликом извршавања програма. Изглед пројектовања интерпретатора за општи програмски језик може изгледати застрашујуће. Напокон, интерпретатори су програми који могу да изврше било које могуће израчунавање, у зависности од сопственог улаза. Међутим, многи интерпретатори имају елегантну заједничку структуру: две међусобно рекурзивне функције. Прва вреднује изразе у окружењима; друга примењује функције на аргументе.</p>
+<p>Ове функције су рекурзивне по томе што су дефинисане једна у односу на другу: примена функције захтева вредновање израза у њеном телу, док вредновање израза може подразумевати примену једне или више различитих функција.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Садржај</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Увод</a><ul>
+<li><a class="reference internal" href="#programminglanguages">Програмски језици</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="index.html"
+                        title="претходна глава">Тумачење рачунарских програма</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="2-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B5.html"
+                        title="наредна глава">Функционално програмирање</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава3/1-увод.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="2-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B5.html" title="Функционално програмирање"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Тумачење рачунарских програма"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Тумачење рачунарских програма</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Увод</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

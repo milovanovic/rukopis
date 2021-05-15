@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Апстракција подацима &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Увод" href="1-%D1%83%D0%B2%D0%BE%D0%B4.html" />
+    <link rel="prev" title="Рекурзивне функције" href="../%D0%B3%D0%BB%D0%B0%D0%B2%D0%B01/7-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="1-%D1%83%D0%B2%D0%BE%D0%B4.html" title="Увод"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="../%D0%B3%D0%BB%D0%B0%D0%B2%D0%B01/7-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5.html" title="Рекурзивне функције"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Апстракција подацима</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chapter2">
+<span id="id1"></span><h1>Апстракција подацима<a class="headerlink" href="#chapter2" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1-%D1%83%D0%B2%D0%BE%D0%B4.html">Увод</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1-%D1%83%D0%B2%D0%BE%D0%B4.html#nativedatatypes">Изворни типови података</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html">Апстракција података</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html#examplerationalnumbers">Пример: рационални бројеви</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html#pairs">Парови</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html#abstractionbarriers">Апстракцијске баријере</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html#thepropertiesofdata">Својства података</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html">Секвенце</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html#lists">Низови</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html#sequenceiteration">Пролазак кроз секвенце</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html#sequenceprocessing">Обрада секвенци</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html#sequenceabstraction">Апстракција секвенце</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html#strings">Ниске</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html#trees">Стабла</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html#linkedlists">Уланчане листе</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html">Променљиви подаци</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#theobjectmetaphor">Метафора објекта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#sequenceobjects">Објекти секвенци</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#dictionaries">Речници</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#localstate">Локално стање</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#thebenefitsofnon-localassignment">Предности нелокалне доделе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#thecostofnon-localassignment">Цена нелокалне доделе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#implementinglistsanddictionaries">Имплементација низова и речника</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#dispatchdictionaries">Диспечерски речници</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-%D0%BF%D1%80%D0%BE%D0%BC%D0%B5%D0%BD%D1%99%D0%B8%D0%B2%D0%B8-%D0%BF%D0%BE%D0%B4%D0%B0%D1%86%D0%B8.html#propagatingconstraints">Пропагација ограничења</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html">Објектно-оријентисано програмирање</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#objectsandclasses">Објекти и класе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#definingclasses">Дефинисање класа</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#messagepassinganddotexpressions">Прослеђивање порука и тачкасти изрази</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#classattributes">Атрибути класе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#inheritance">Наслеђивање</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#usinginheritance">Коришћење наслеђивања</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#multipleinheritance">Вишеструко наслеђивање</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-%D0%BE%D0%BE%D0%BF.html#theroleofobjects">Улога објеката</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6-%D0%B8%D0%BC%D0%BF%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%98%D0%B0-%D0%BA%D0%BB%D0%B0%D1%81%D0%B0-%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D0%B0%D1%82%D0%B0.html">Имплементација класа и објеката</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6-%D0%B8%D0%BC%D0%BF%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%98%D0%B0-%D0%BA%D0%BB%D0%B0%D1%81%D0%B0-%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D0%B0%D1%82%D0%B0.html#instances">Инстанце</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6-%D0%B8%D0%BC%D0%BF%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%98%D0%B0-%D0%BA%D0%BB%D0%B0%D1%81%D0%B0-%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D0%B0%D1%82%D0%B0.html#classes">Класе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6-%D0%B8%D0%BC%D0%BF%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%98%D0%B0-%D0%BA%D0%BB%D0%B0%D1%81%D0%B0-%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D0%B0%D1%82%D0%B0.html#usingimplementedobjects">Коришћење имплементираних објеката</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%BD%D0%B0-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html">Објектна апстракција</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%BD%D0%B0-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html#stringconversion">Претварање ниски</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%BD%D0%B0-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html#specialmethods">Посебне методе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%BD%D0%B0-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html#multiplerepresentations">Вишеструке представе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%BD%D0%B0-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html#genericfunctions">Генеричке функције</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="8-%D0%B5%D1%84%D0%B8%D0%BA%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82.html">Ефикасност</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8-%D0%B5%D1%84%D0%B8%D0%BA%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82.html#measuringefficiency">Мерење ефикасности</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8-%D0%B5%D1%84%D0%B8%D0%BA%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82.html#memoization">Мемоизација</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8-%D0%B5%D1%84%D0%B8%D0%BA%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82.html#ordersofgrowth">Величине раста</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8-%D0%B5%D1%84%D0%B8%D0%BA%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82.html#example-exponentiation">Пример: степеновање</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8-%D0%B5%D1%84%D0%B8%D0%BA%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82.html#growthcategories">Категорије раста</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%B8.html">Рекурзивни објекти</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="9-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%B8.html#linkedlistclass">Класа уланчане листе</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%B8.html#treeclass">Класа стабла</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B8-%D0%BE%D0%B1%D1%98%D0%B5%D0%BA%D1%82%D0%B8.html#sets">Скупови</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="../%D0%B3%D0%BB%D0%B0%D0%B2%D0%B01/7-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5.html"
+                        title="претходна глава">Рекурзивне функције</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="1-%D1%83%D0%B2%D0%BE%D0%B4.html"
+                        title="наредна глава">Увод</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава2/index.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="1-%D1%83%D0%B2%D0%BE%D0%B4.html" title="Увод"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="../%D0%B3%D0%BB%D0%B0%D0%B2%D0%B01/7-%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B7%D0%B8%D0%B2%D0%BD%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5.html" title="Рекурзивне функције"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Апстракција подацима</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

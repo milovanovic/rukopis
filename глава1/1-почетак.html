@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Почетак &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Елементи програмирања" href="2-%D0%B5%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B0.html" />
+    <link rel="prev" title="Апстракција функцијама" href="index.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="2-%D0%B5%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B0.html" title="Елементи програмирања"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Апстракција функцијама"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Апстракција функцијама</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Почетак</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gettingstarted">
+<span id="id1"></span><h1>Почетак<a class="headerlink" href="#gettingstarted" title="Permalink to this headline">¶</a></h1>
+<p>Рачунарство и рачунарске науке су веома широке академске дисциплине. Области архитектуре рачунара, вештачке интелигенције, рачунарске графике, рачунарских мрежа, научних израчунавања и прорачуна, роботике, сигурности, као и десетине настајућих подобласти, се сваке године проширују новим техникама и открићима. Убрзан развој рачунарства и рачунарских наука утицао је на практично све аспекте људског живота. Трговина, телекомуникације, наука, уметност, разонода, политика, између осталих, су изнова оживели као рачунски домени.</p>
+<p>Висок степен продуктивности рачунарства и рачунарских наука омогућен је тиме што су ове дисциплине изграђене на елегантном и моћном скупу темељних идеја. Сва израчунавања започињу представљањем информација, спецификацијом логике за њихову обраду, али и пројектовањем апстракција које руководе и управљају свом сложеношћу те логике. Савладавање ових основа захтеваће детаљно и тачно разумевање како рачунари тумаче рачунарске програме и спроводе рачунске поступке.</p>
+<p>Ове основне идеје дуго се предају и изучавају користећи класичан уџбеник <em>Структура и интерпретација рачунарских програма — СИРП</em> (енг. <a class="reference external" href="http://mitpress.mit.edu/sicp">Structure and Interpretation of Computer Programs — SICP</a>) аутора <a class="reference external" href="http://sr.wikipedia.org/wiki/Хал_Абелсон">Харолда Абелсона</a> и Џералда Џеј Сасмана са Џули Сасман. Овај уџбеник се у великој мери наслања и преузима много из поменуте књиге коју су њени аутори љубазно лиценцирали дозволивши прераду и поновну употребу под Кријејтив комонс лиценцом. Такође, значајни делови преузети су и из разних бесплатних и слободних интернет материјала, пре свега из текста <em>Компоновање програма</em> (енг. <a class="reference external" href="http://www.composingprograms.com">Composing Programs</a>) аутора <a class="reference external" href="http://www.denero.org">Џона ДеНира</a> који у суштини представља <em>СИРП</em> прилагођен програмском језику Пајтон, а који је доступан под истом лиценцом.</p>
+<p>Целокупан овај текст објављен је под идентичном лиценцом, односно Кријејтив комонс Ауторство-делити под истим условима 4.0 међународна лиценца (енг. <a class="reference external" href="http://creativecommons.org/licenses/by-sa/4.0">Creative Commons Attribution-ShareAlike 4.0 International License</a>).</p>
+<div class="section" id="programminginpython">
+<span id="id4"></span><h2>Програмирање у Пајтону<a class="headerlink" href="#programminginpython" title="Permalink to this headline">¶</a></h2>
+<p>Да би се дефинисали рачунски поступци и процеси неопходан је програмски језик, по могућности разумљив многим људима и великом броју рачунара. У овој књизи, првенствено ће бити рађено са <a class="reference external" href="http://docs.python.org">Пајтон</a> програмским језиком.</p>
+<p>Пајтон је широко коришћени програмски језик који је регрутовао ентузијасте из многих професија: веб програмере, инжењере видео игара, инжењере и научнике, академску заједницу, па чак и пројектанте нових програмских језика. Учењем Пајтона, придружујете се вишемилионској заједници програмера. Заједнице програмера су изузетно важне институције: чланови помажу једни другима у решавању проблема, деле своје пројекте и искуства и заједнички развијају софтвер и алате. Посвећени чланови често постају славни и нашироко поштовани за свој допринос.</p>
+<p>Сам програмски језик Пајтон производ је <a class="reference external" href="http://www.python.org/psf/members">велике заједнице добровољаца</a> која се поноси <a class="reference external" href="http://www.python.org/community/diversity">разноликошћу</a> својих сарадника. Језик је осмислио и направио <a class="reference external" href="http://sr.wikipedia.org/wiki/Гвидо_ван_Росум">Гвидо ван Росум</a> крајем осамдесетих година прошлог века. Прво поглавље његовог <a class="reference external" href="http://docs.python.org/tutorial/appetite.html">Пајтон водича</a> објашњава зашто је Пајтон толико популаран и поред многих других програмских језика доступних данас.</p>
+<p>Пајтон се истиче као језик за обуку и подучавање јер су током своје историје Пајтонови развојни инжењери истицали читљивост изворног кода као једну од главних одлика, ојачану водећим принципима лепоте, једноставности и читљивости под називом <a class="reference external" href="http://www.python.org/dev/peps/pep-0020">Зен Пајтона</a>. Пајтон је посебно прикладан за овај уџбеник, јер његов широк скуп функција подржава низ различитих стилова програмирања који ће бити истражени. Иако не постоји јединствени начин програмирања у Пајтону, постоји низ усвојених конвенција унутар заједнице програмера које олакшавају тумачење, разумевање и надоградњу постојећих програма. Пајтонова комбинација изузетне флексибилности и приступачности омогућава студентима да истраже многе парадигме програмирања, а затим да своја новостечена знања примене на хиљадама <a class="reference external" href="http://www.pypi.org">текућих пројеката</a>.</p>
+<p>Овај уџбеник задржава добро познат <em>СИРП</em> дух увођењем одлика програмског језика Пајтон корак по корак заједно са техникама апстракције и ригорозним моделом израчунавања. Поред тога, ове белешке пружају практичан увод у основе програмирања у Пајтону, укључујући такође и нека напредна језичка својства уз илустративне примере. Овладавање вештинама и побољшање способности програмирања у Пајтону требало би да дође природно како се напредује кроз текст.</p>
+<p>Најбољи начин за учење програмирања у Пајтону јесте свакако директна интеракција са интерпретатором. Овај одељак врло укратко и поједностављено описује како инсталирати Пајтон 3, покренути интерактивни интерпретатор и (за)почети са програмирањем.</p>
+</div>
+<div class="section" id="installingpython">
+<span id="id12"></span><h2>Пајтон инсталација<a class="headerlink" href="#installingpython" title="Permalink to this headline">¶</a></h2>
+<p>Као што је то случај и са свим другим истакнутим програмима, и Пајтон има много верзија. Овај уџбеник ће користити најновију стабилну верзију Пајтона 3. Нису ретки рачунари на којима већ постоје инсталиране старије верзије Пајтона, као што је Пајтон 2.7, али се оне не подударају са описима и примерима изнетим у наставку овог текста. Практично било који комерцијално доступан рачунар је више него довољан, али би на њему требало инсталирати Пајтон 3, који је наравно у потпуности бесплатан.</p>
+<p>Пајтон 3 је могуће преузети са званичне <a class="reference external" href="www.python.org/downloads">интернет странице за преузимање</a> Пајтон програмског језика. Само је потребно следити упутства и довршити исталацију. Такође, скоро сви савремени оперативни системи већ укључују Пајтон као готов инсталациони пакет те се на њима он може инсталирати и директно преко система за управљање пакетима.</p>
+</div>
+<div class="section" id="interactivesessions">
+<span id="id14"></span><h2>Интерактивне сеансе<a class="headerlink" href="#interactivesessions" title="Permalink to this headline">¶</a></h2>
+<p>У интерактивним Пајтон сеансама сам Пајтон <em>изворни код</em> се куца након <em>упита</em>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>. Пајтон <em>интерпретатор</em> чита и извршава оно што се укуца испуњавајући на тај начин разне наредбе.</p>
+<p>Да би се започела интерактивна сеанса треба покренути Пајтон једноставним куцањем <code class="docutils literal notranslate"><span class="pre">python3</span></code> у конзоли, односно терминалу или отварањем Пајтон 3 апликације, све у зависности од оперативног система.</p>
+<p>Када се прикаже Пајтонов упит, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>, то је знак да је интерактивна сеанса успешно започета. Ове белешке приказују примере интеракција преко упита праћеним неким уносима.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<div class="section" id="interactivecontrols">
+<span id="id15"></span><h3>Интерактивне контроле<a class="headerlink" href="#interactivecontrols" title="Permalink to this headline">¶</a></h3>
+<p>Свака сеанса чува историју уноса. Уносима у историји се приступа притиском на <code class="docutils literal notranslate"><span class="pre">&lt;Ctrl&gt;+p</span></code> (претходни) и <code class="docutils literal notranslate"><span class="pre">&lt;Ctrl&gt;+n</span></code> (наредни). Стрелице горе и доле такође пролазе кроз историју на неким оперативним системима. Излазак из сеансе могућ је преко <code class="docutils literal notranslate"><span class="pre">&lt;Ctrl&gt;+d</span></code> и том приликом се брише историја уноса.</p>
+</div>
+</div>
+<div class="section" id="firstexample">
+<span id="id16"></span><h2>Први пример<a class="headerlink" href="#firstexample" title="Permalink to this headline">¶</a></h2>
+<p>Како би се Пајтону пружио одговарајући увод, излагање ће бити започето примером који користи неколико језичких одлика. У следећем одељку ће се кренути од нуле и програмски језик Пајтон ће се надограђивати део по део. Овај одељак се може посматрати као кратак преглед онога што долази.</p>
+<p>Пајтон поседује уграђену подршку за широк спектар уобичајених програмерских активности, попут обраде текста, графичког приказа и комуникације путем интернета. Следећа линија Пајтон кода</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+</pre></div>
+</div>
+<p>представља <code class="docutils literal notranslate"><span class="pre">import</span></code> наредбу која учитава функционалност за приступ интернет подацима. Конкретно, претходна наредба чини доступном функцију под називом <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> која може приступити одређеном садржају на некој интернет адреси.</p>
+<div class="section" id="statementsandexpressions">
+<span id="id17"></span><h3>Наредбе и изрази<a class="headerlink" href="#statementsandexpressions" title="Permalink to this headline">¶</a></h3>
+<p>Пајтон код се састоји од израза и наредби. Уопштено говорећи, рачунарски програми садрже упутстава за:</p>
+<ol class="arabic simple">
+<li><p>израчунавање неких вредности, или</p></li>
+<li><p>извршавање неких радњи.</p></li>
+</ol>
+<p>Наредбе обично описују радње. Када Пајтонов интерпретатор изврши наредбу, спроводи и одговарајућу радњу. С друге стране, изрази обично описују израчунавања. Када Пајтонов интерпретатор вреднује израз, он заправо израчунава вредност тог израза. Ово поглавље уводи неколико врста наредби и израза.</p>
+<p>Наредба доделе</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">наДриниЋуприја</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://raw.githubusercontent.com/milovanovic/ivoandric/master/Drina.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>повезује име <code class="docutils literal notranslate"><span class="pre">наДриниЋуприја</span></code> на вредност израза који следи након <code class="docutils literal notranslate"><span class="pre">=</span></code>. Тај израз примењује <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> функцију на интернет адресу која садржи комплетан текст романа <em>На Дрини ћуприја</em> српског књижевника и нобеловца Иве Андрића.</p>
+</div>
+<div class="section" id="functions">
+<span id="id18"></span><h3>Функције<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<p>Функције обухватају логику која манипулише подацима. На пример, <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> је функција. Интернет адреса је један податак, а сам текст романа је неки други податак. Процес којим први води до другог може бити сложен, али тај процес се може применити користећи само једноставан израз јер је та сложеност обухваћена и уметнута унутар функције. Функције су примарна тема овог поглавља.</p>
+<p>Друга наредба доделе</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">речи</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">наДриниЋуприја</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>повезује име <code class="docutils literal notranslate"><span class="pre">речи</span></code> са скупом свих јединствених речи и облика истих које се појављују у роману <em>На Дрини ћуприја</em>, свих пар десетина хиљада њих. Свака од уланчаних наредби за читање (<code class="docutils literal notranslate"><span class="pre">read</span></code>), декодирање (<code class="docutils literal notranslate"><span class="pre">decode</span></code>) и раздвајање (<code class="docutils literal notranslate"><span class="pre">split</span></code>) оперишу над рачунским међурезултатом, односно читају се подаци из отворене интернет адресе, затим се ти подаци декодују у текст и на крају се тај текст дели у речи. Све те речи се смештају у <code class="docutils literal notranslate"><span class="pre">set</span></code>, то јест скуп.</p>
+</div>
+<div class="section" id="objects">
+<span id="id19"></span><h3>Објекти<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h3>
+<p>Скуп, односно <code class="docutils literal notranslate"><span class="pre">set</span></code> је врста објекта који подржава операције над скуповима попут израчунавања пресека скупова и провере чланства. Објекат неприметно спаја заједно податке и логику која њима манипулише, на начин који је погодан за управљање сложеношћу оба. Објекти су примарна тема наредног поглавља. Коначно, израз</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">({</span><span class="n">реч</span> <span class="k">for</span> <span class="n">реч</span> <span class="ow">in</span> <span class="n">речи</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">реч</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">реч</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">речи</span><span class="p">})</span>
+<span class="go">[&#39;ипак&#39;, &#39;капак&#39;, &#39;капи&#39;, &#39;кулук&#39;, &#39;мелем&#39;, &#39;мојом&#39;, &#39;ромор&#39;, &#39;терет&#39;]</span>
+</pre></div>
+</div>
+<p>је сложени израз који из скупа прави сортиран низ свих речи, не краћих од четворословних, у роману <em>На Дрини ћуприја</em> које су истовремено исправне речи написане обрнуто. Тајанствени запис <code class="docutils literal notranslate"><span class="pre">реч[::-1]</span></code> набраја једно по једно слово у речи, али <code class="docutils literal notranslate"><span class="pre">-1</span></code> налаже да се то ради у обрнутом редоследу, односно уназад. Када се израз унесе у интерактивну сеансу, Пајтон исписује његову вредност у следећем реду.</p>
+</div>
+<div class="section" id="interpreters">
+<span id="id20"></span><h3>Интерпретатори<a class="headerlink" href="#interpreters" title="Permalink to this headline">¶</a></h3>
+<p>Вредновање сложених израза захтева прецизан поступак који тумачи изворни код на предвидљив начин. Програм који примењује такав поступак, вреднујући сложене изразе, назива се интерпретатор. Пројектовање и имплементација интерпретатора примарна је тема трећег поглавља.</p>
+<p>У поређењу са другим рачунарским програмима, интерпретатори програмских језика су јединствени по својој општости. Пајтон није пројектован имајући у виду Иву Андрића. Међутим, његова велика флексибилност омогућила је да се обради велика количина текста само помоћу неколико наредби и израза.</p>
+<p>На крају ће бити откривено да су сви ови основни концепти уско повезани: функције су објекти, објекти су функције, а интерпретатори су инстанце оба. Међутим, развијање јасног разумевања сваког од ових концепата и њихове улоге у организацији изворног кода пресудно је за овладавање вештином програмирања.</p>
+</div>
+</div>
+<div class="section" id="errors">
+<span id="id21"></span><h2>Грешке<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>Чекајући на наредбу Пајтон подстиче експериментисање са језиком, иако корисник можда још увек не познаје у потпуности речник и структуру језика. Ипак, треба бити спреман на грешке. Иако су рачунари изузетно брзи и флексибилни, истовремено су и крајње крути. Природа рачунара може бити описана као</p>
+<blockquote>
+<div><p>Основна једначина рачунара је:</p>
+<p><code class="docutils literal notranslate"><span class="pre">рачунар</span> <span class="pre">=</span> <span class="pre">моћан</span> <span class="pre">+</span> <span class="pre">глуп</span></code></p>
+<p>Рачунари су врло моћни у брзом прегледу великих количина података. Рачунари дословно могу да изврше милијарде операција у секунди. Међутим, појединачне „операције” које рачунари могу да изврше су изузетно једноставне и механичке, нимало налик људским мислима или увиду. Типичне „операције” укључују поређење бројева или сабирање два броја.</p>
+<p>Дакле, иако су рачунари брзи у ономе што раде, операције које могу да изведу изузетно су круте, једноставне и механичке. Другим речима, рачунари нису ни налик нечему као <a class="reference external" href="http://sr.wikipedia.org/wiki/ХАЛ_9000">ХАЛ 9000</a> из култне књиге или познатог филма.</p>
+<p>Кључна порука је та да се рачунар не понаша као људски мозак. Рачунар је механички алат који може да уради невероватне ствари, али захтева од човека да му каже шта да ради.</p>
+</div></blockquote>
+<p>Крутост рачунара постаје очигледна одмах, већ приликом првог експериментисања и испробавања Пајтоновог интерпретатора: чак и најмање промене у куцању и форматирању изазивају неочекиване резултате и грешке.</p>
+<p>Тумачење грешака и дијагностиковање, односно утврђивање узрока неочекиваних грешака назива се <em>дебаговање</em>. Неке водиље и смернице дебаговања и отклањања грешака су:</p>
+<ol class="arabic simple">
+<li><p><strong>Поступно тестирање</strong>: Сваки добро написан програм састоји се од малих модуларних компоненти које се могу тестирати појединачно. Све што се напише треба испробати што је пре могуће како би се што раније уочили и отклонили проблеми и стекло поверење у компоненте.</p></li>
+<li><p><strong>Изолација грешака</strong>: Грешка у излазу наредбе обично се може приписати одређеној модуларној компоненти. Приликом утврђивања проблема, треба пратити грешку све до најмањег дела изворног кода пре самог покушаја да се та грешка отклони.</p></li>
+<li><p><strong>Провера претпоставки</strong>: Интерпретатори извршавају наредебе и одговарају на упите буквално – ни више ни мање од тога. Излаз је неочекиван када се понашање неког изворног кода не подудара са оним што програмер сматра (или претпоставља) да би то понашање требало да буде. Неопходно је бити свестан својих претпоставки, а затим усредсредити напоре приликом дебаговања на проверу да ли те претпоставке заиста важе.</p></li>
+<li><p><strong>Консултације са другима</strong>: Нисте сами! Уколико је порука о грешци неразумљива, увек је могуће питати колегу, наставника или потражити помоћ на интернету. Ако је грешка изолована, али није најјасније како је исправити, може се замолити још неко да је погледа. Много драгоценог програмерског знања бива подељено у процесу заједничког решавања проблема.</p></li>
+</ol>
+<p>Поступно тестирање, модуларно пројектовање, прецизне претпоставке и тимски рад су теме које се провлаче кроз читав овај рукопис. Надајмо се да ће се исте теме провлачити и кроз читаве ваше инжењерске каријере.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Садржај</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Почетак</a><ul>
+<li><a class="reference internal" href="#programminginpython">Програмирање у Пајтону</a></li>
+<li><a class="reference internal" href="#installingpython">Пајтон инсталација</a></li>
+<li><a class="reference internal" href="#interactivesessions">Интерактивне сеансе</a><ul>
+<li><a class="reference internal" href="#interactivecontrols">Интерактивне контроле</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#firstexample">Први пример</a><ul>
+<li><a class="reference internal" href="#statementsandexpressions">Наредбе и изрази</a></li>
+<li><a class="reference internal" href="#functions">Функције</a></li>
+<li><a class="reference internal" href="#objects">Објекти</a></li>
+<li><a class="reference internal" href="#interpreters">Интерпретатори</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#errors">Грешке</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="index.html"
+                        title="претходна глава">Апстракција функцијама</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="2-%D0%B5%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B0.html"
+                        title="наредна глава">Елементи програмирања</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава1/1-почетак.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="2-%D0%B5%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B0.html" title="Елементи програмирања"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Апстракција функцијама"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Апстракција функцијама</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Почетак</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

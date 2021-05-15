@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Увод &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Апстракција података" href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html" />
+    <link rel="prev" title="Апстракција подацима" href="index.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html" title="Апстракција података"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Апстракција подацима"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Апстракција подацима</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Увод</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="id1"></span><h1>Увод<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Претходно поглавље било је усредсређено на рачунске процесе и на улогу функција у пројектовању програма. Приказано је коришћење примитивних података (бројева) и примитивних операција (аритметика), како образовати сложене функције кроз комбиновање и управљање и како направити функционалне апстракције давањем имена поступцима. Такође је показано и како функције вишег реда повећавају снагу језика омогућавајући манипулацију, а самим тим и расуђивање и промишљање у погледу општих метода израчунавања. Ово је у многоме срж и суштина програмирања.</p>
+<p>У жижи овог поглавља су подаци. Технике које ће бити истражене на овом месту дозволиће представљање и руковање информацијама из многих различитих домена. Услед експлозивног раста интернета, огромна количина структурираних података је слободно доступна свима и израчунавања могу бити примењена на широк спектар најразличитијих проблема. Ефикасна употреба уграђених и кориснички дефинисаних типова података је од фундаменталног значаја за обраду података уопште.</p>
+<div class="section" id="nativedatatypes">
+<span id="id2"></span><h2>Изворни типови података<a class="headerlink" href="#nativedatatypes" title="Permalink to this headline">¶</a></h2>
+<p>Свака вредност у Пајтону има <em>класу</em> која одређује ког типа је та вредност. Вредности које имају заједничку класу, такође имају заједничко понашање. На пример, цели бројеви <code class="docutils literal notranslate"><span class="pre">-1</span></code> и <code class="docutils literal notranslate"><span class="pre">2</span></code> су оба примерци, односно инстанце <code class="docutils literal notranslate"><span class="pre">int</span></code> класе. С овим двема вредностима може се поступати на сличан начин. На пример, обе се могу негирати или додавати другим целим бројевима. Уграђена функција <code class="docutils literal notranslate"><span class="pre">type</span></code> омогућава прегледање класе ма које вредности.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+</pre></div>
+</div>
+<p>Вредности које су до сада биле коришћене су инстанце малог броја <em>изворних</em> типова података који су уграђени у Пајтон програмски језик. Изворни типови имају следећа својства:</p>
+<ol class="arabic simple">
+<li><p>Постоје изрази који се вреднују у вредности изворних типова и називају се <em>литерали</em>.</p></li>
+<li><p>Постоје уграђене функције и оператори за манипулисање вредностима изворних типова.</p></li>
+</ol>
+<p>Класа <code class="docutils literal notranslate"><span class="pre">int</span></code> је изворни тип податка коришћен за представу целих бројева. Целобројни литерали (низови упоредних цифара) се вреднују у <code class="docutils literal notranslate"><span class="pre">int</span></code> вредности, а математички оператори рукују овим вредностима.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">12</span> <span class="o">+</span> <span class="mi">3000000000000000000000000</span>
+<span class="go">3000000000000000000000012</span>
+</pre></div>
+</div>
+<p>Пајтон укључује три изворна нумеричка типа: цели бројеви (<code class="docutils literal notranslate"><span class="pre">int</span></code>), реални бројеви (<code class="docutils literal notranslate"><span class="pre">float</span></code>) и комплексни бројеви (<code class="docutils literal notranslate"><span class="pre">complex</span></code>).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
+<span class="go">&lt;class &#39;complex&#39;&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="floats">
+<span id="id3"></span><h3>Реални бројеви<a class="headerlink" href="#floats" title="Permalink to this headline">¶</a></h3>
+<p>Назив <code class="docutils literal notranslate"><span class="pre">float</span></code> потиче од начина на који су реални бројеви представљени у Пајтону и многим другим програмским језицима: „floating point” представа или представа са „покретним зарезом”. И док појединости о томе како су бројеви представљени није тема овог текста, неке разлике на високом нивоу између <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">float</span></code> објеката су важне да се знају. Нарочито, <code class="docutils literal notranslate"><span class="pre">int</span></code> објекти представљају целе бројеве егзактно, односно без икакве апроксимације или ограничења на њихову величину. С друге стране <code class="docutils literal notranslate"><span class="pre">float</span></code> објекти могу представљати широк опсег разломљених бројева (разломака), али не могу сви бројеви бити представљени егзактно, а постоји минимална и максимална вредност која се може представити. Стога, <code class="docutils literal notranslate"><span class="pre">float</span></code> вредности треба третирати као апроксимације реалних вредности. Ове апроксимације имају коначну прецизност. Комбинација <code class="docutils literal notranslate"><span class="pre">float</span></code> вредности може водити ка грешкама апроксимације. Наиме, оба наредна израза би се вредновала као 7 ако не би било апроксимације.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="go">7.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="go">6.999999999999999</span>
+</pre></div>
+</div>
+<p>Премда су целобројне <code class="docutils literal notranslate"><span class="pre">int</span></code> вредности комбиноване, дељење једне <code class="docutils literal notranslate"><span class="pre">int</span></code> вредности другом даје <code class="docutils literal notranslate"><span class="pre">float</span></code> вредност: скраћену коначну апроксимацију стварног односа два подељена цела броја.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+<span class="go">0.3333333333333333</span>
+</pre></div>
+</div>
+<p>Проблеми са апроксимативним вредностима почињу да се појављују приликом провере једнакости.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span> <span class="o">==</span> <span class="mf">0.333333333333333312345</span>  <span class="c1"># Пажња: float апроксимација</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Ове суптилне разлике међу класама <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">float</span></code> имају далекосежне последице на писање програма па су то појединости које програмери морају запамтити. Срећом, постоји свега неколико изворних типова података те је количина ствари које се мора упамтити, да би се савладао одређени програмски језик, ипак ограничена. Штавише, ове појединости су применљиве на више програмских језика и подстакнуте су заједничким смерницама као што је <a class="reference external" href="http://sr.wikipedia.org/wiki/IEEE_754">IEEE 754</a> стандард за аритметику у покретном зарезу.</p>
+</div>
+<div class="section" id="nonnumerictypes">
+<span id="id4"></span><h3>Ненумерички типови<a class="headerlink" href="#nonnumerictypes" title="Permalink to this headline">¶</a></h3>
+<p>Вредностима се могу приказати многи други типови података, као што су звуци, слике, положаји, адресе, мрежне везе, итд. Свега неколико их је представљено изворним типовима података као што је <code class="docutils literal notranslate"><span class="pre">bool</span></code> класа са вредностима <code class="docutils literal notranslate"><span class="pre">True</span></code> (тачно) и <code class="docutils literal notranslate"><span class="pre">False</span></code> (нетачно) за логички тип податка. За већину вредности тип мора бити дефинисан од стране програмера користећи начине комбинације и апстракције који ће бити представљени и развијени у овом поглављу.</p>
+<p>Наредни одељци уводе још Пајтонових изворних типова података фокусирајући се на улогу коју играју у стварању корисних апстракција података. За оне који су заинтересовани за појединости, поглавље о изворним типовима података у интернет књизи <a class="reference external" href="http://www.diveintopython3.net/native-datatypes.html">Dive Into Python 3</a> даје прагматичан преглед свих Пајтонових изворних типова података и основним операцијама над њима укључујући и бројне примере коришћења и практичне савете.</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Садржај</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Увод</a><ul>
+<li><a class="reference internal" href="#nativedatatypes">Изворни типови података</a><ul>
+<li><a class="reference internal" href="#floats">Реални бројеви</a></li>
+<li><a class="reference internal" href="#nonnumerictypes">Ненумерички типови</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="index.html"
+                        title="претходна глава">Апстракција подацима</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html"
+                        title="наредна глава">Апстракција података</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава2/1-увод.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="2-%D0%B0%D0%BF%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D1%98%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html" title="Апстракција података"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Апстракција подацима"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Апстракција подацима</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Увод</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Паралелна обрада &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Закључак" href="../%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA/%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA.html" />
+    <link rel="prev" title="Расподељена обрада података" href="7-%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D1%99%D0%B5%D0%BD%D0%B0-%D0%BE%D0%B1%D1%80%D0%B0%D0%B4%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="../%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA/%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA.html" title="Закључак"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="7-%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D1%99%D0%B5%D0%BD%D0%B0-%D0%BE%D0%B1%D1%80%D0%B0%D0%B4%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html" title="Расподељена обрада података"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Обрада података</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Паралелна обрада</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="parallelcomputing">
+<span id="id1"></span><h1>Паралелна обрада<a class="headerlink" href="#parallelcomputing" title="Permalink to this headline">¶</a></h1>
+<p>Од 1970-их до средине 2000-их, брзина појединачних процесорских језгара расла је експоненцијалном брзином. Велики део овог повећања брзине постигнут је повећањем учестаности сигнала такта, односно брзине којом процесор обавља основне операције. Средином 2000-их година, међутим, овај експоненцијални пораст нагло се зауставио, услед топлотних ограничења до којих је довела дисипација снаге, а брзина појединачних језгара процесора се од тада повећавала далеко спорије. Уместо тога, произвођачи процесора почели су да стављају више језгара у један процесор, омогућавајући истовремено обављање више операција.</p>
+<p>Паралелизација није нови концепт. Паралелне машине великих размера користе се већ деценијама, пре свега за научна израчунавања и анализу података. Чак и у персоналним рачунарима са једним процесорским језгром, оперативни системи и интерпретатори пружају апстракцију конкурентности и паралелизма. То се постиже <em>пребацивањем контекста</em> или брзим пребацивањем између различитих задатака без чекања да се они доврше. Дакле, више програма може истовремено да се извршава на истом рачунару, чак и ако има само једно процесорско језгро.</p>
+<p>С обзиром на тренутни тренд повећања броја процесорских језгара, појединачни програми сада морају да искористе предност паралелизма како би радили брже. У оквиру једног програма, израчунавање мора бити организовано на такав начин да се што више посла може обавити паралелно. Међутим, паралелизам уводи нове изазове у писање исправног изворног кода, посебно у присуству заједничког, променљивог стања.</p>
+<p>За проблеме који се могу ефикасно решити у функционалном моделу, без заједничког променљивог стања, паралелизам не представља проблем. Чисте функције пружају <em>референцијалну прозрачност</em>, што значи да изрази могу бити замењени њиховим вредностима, и обратно, без утицаја на понашање програма. Ово омогућава паралелно вредновање међусобно независних израза. Као што је разматрано у претходном одељку, MapReduce оквир омогућава писање и паралелно извршавање функционалних програма уз минималан напор од стране програмера.</p>
+<p>Нажалост, не могу се сви проблеми ефикасно решити помоћу функционалног програмирања. У оквиру различитих пројеката је идентификовано <a class="reference external" href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.html">тринаест уобичајених рачунских образаца</a> у науци и инжењерству, од којих је само један MapReduce сводљив. Преостали обрасци захтевају заједничка стања.</p>
+<p>У остатку овог одељка биће приказано како променљиво дељено стање може увести багове и довести до грешака у паралелне програме, као и неколико приступа за спречавање таквих грешака. Ове технике ће бити испитане у контексту две апликације, веб паука и симулатора честица.</p>
+<div class="section" id="parallelisminpython">
+<span id="id3"></span><h2>Паралелизам у Пајтону<a class="headerlink" href="#parallelisminpython" title="Permalink to this headline">¶</a></h2>
+<p>Пре дубљег зарона у појединости паралелизма, најпре ће бити истражена Пајтонова подршка за паралелно израчунавање. Пајтон пружа два начина паралелног извршавања: нити и вишепроцесорска обрада.</p>
+<div class="section" id="threading">
+<span id="id4"></span><h3>Нити<a class="headerlink" href="#threading" title="Permalink to this headline">¶</a></h3>
+<p>У <em>нитима</em>, постоји више „нити” извршења унутар једног интерпретатора. Свака нит извршава код независно од осталих, иако деле исте податке. Међутим, CPython интерпретатор, главна и референтна Пајтон имплементација, интерпретира код само у једној нити у једном временском тренутку, пребацујући се између њих како би пружио илузију паралелизма. С друге стране, операције које су ван самог интерпретатора, попут уписа у датотеку или приступа мрежи, могу се извршавати паралелно.</p>
+<p>Модул <code class="docutils literal notranslate"><span class="pre">threading</span></code> садржи класе које омогућавају стварање и синхронизацију нити. Следи једноставан пример вишенитног програма:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">threading</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">нитЗдраво</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">други</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">нитРециЗдраво</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="n">други</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">нитРециЗдраво</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">нитРециЗдраво</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Здраво од&#39;</span><span class="p">,</span> <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">нитЗдраво</span><span class="p">()</span>
+<span class="go">Здраво од Thread-1</span>
+<span class="go">Здраво од MainThread</span>
+</pre></div>
+</div>
+<p>Конструктор <code class="docutils literal notranslate"><span class="pre">Thread</span></code> ствара нову нит. Потребна је циљана функција коју треба да покрене и изврши нова нит, као и аргументи те функције. Позивање <code class="docutils literal notranslate"><span class="pre">start</span></code> на <code class="docutils literal notranslate"><span class="pre">Thread</span></code> објекту означава га као спремног за покретање и извршавање. Функција <code class="docutils literal notranslate"><span class="pre">current_thread</span></code> враћа <code class="docutils literal notranslate"><span class="pre">Thread</span></code> објекат повезан са тренутном нити извршења.</p>
+<p>У овом примеру, исписи се могу десити било којим редоследом, јер нису синхронизовани ни на који начин.</p>
+</div>
+<div class="section" id="multiprocessing">
+<span id="id5"></span><h3>Вишепроцесорска обрада<a class="headerlink" href="#multiprocessing" title="Permalink to this headline">¶</a></h3>
+<p>Пајтон такође подржава <em>вишепроцесорску обраду</em>, што омогућава програму да произведе више интерпретатора или <em>процеса</em>, од којих сваки може самостално да покреће код. Ови процеси углавном не деле и не размењују податке, па се свако дељено стање и размена података мора искомуницирати између процеса. С друге стране, процеси се извршавају паралелно у складу са нивоом паралелизма који пружа основни оперативни систем и хардвер. Дакле, ако централна процесорска јединица има више процесорских језгара, Пајтон процеси могу се заиста извршавати конкурентно, односно истовремено.</p>
+<p>Модул <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> садржи класе за стварање и синхронизацију процеса. Следи пример примене процеса налик претходном када су у питању биле нити:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">процесЗдраво</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">други</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">процесРециЗдраво</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="n">други</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">процесРециЗдраво</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">процесРециЗдраво</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Здраво од&#39;</span><span class="p">,</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">current_process</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">процесЗдраво</span><span class="p">()</span>
+<span class="go">Здраво од MainProcess</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Здраво</span> <span class="n">од</span> <span class="n">Process</span><span class="o">-</span><span class="mi">1</span> 
+</pre></div>
+</div>
+<p>Као што овај пример показује, многе класе и функције у вишепроцесорској обради аналогне су онима у нитима. Овај пример такође показује како недостатак синхронизације утиче на дељено стање, јер се екран може сматрати дељеним стањем. Овде се упит интерпретатора <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> из интерактивног процеса појављује пре исписа из другог процеса.</p>
+</div>
+</div>
+<div class="section" id="theproblemwithsharedstate">
+<span id="id6"></span><h2>Проблем с дељеним стањима<a class="headerlink" href="#theproblemwithsharedstate" title="Permalink to this headline">¶</a></h2>
+<p>Да би се подробније илустровао проблем с дељеним стањима, корисно је погледати једноставан пример бројача који се дели између две нити:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">threading</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">бројач</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">увећај</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">број</span> <span class="o">=</span> <span class="n">бројач</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># покушај насилног пребацивања на другу нит</span>
+<span class="gp">... </span>    <span class="n">бројач</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">број</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">други</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">увећај</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">други</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">увећај</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Бројач је сада:&#39;</span><span class="p">,</span> <span class="n">бројач</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">Бројач је сада: 1</span>
+</pre></div>
+</div>
+<p>У овом програму две нити покушавају да увећају исти бројач. CPython интерпретатор може да се пребаци између нити у било ком тренутку. Само су најосновније операције <em>атомске</em>, што значи да изгледа као да се извршавају, односно јављају тренутно, без могућности пребацивања током њиховог вредновања или извршавања. Увећавање бројача захтева више основних операција: очитавање старе вредности, додавање на њу јединице и упис нове вредности. Интерпретатор може пребацивати нити између било које од ових операција.</p>
+<p>Да би се показало шта се дешава када тумач пребаци нити у погрешно време, направљен је покушај да се насилно пребаци нит „успављивањем” (наредба <code class="docutils literal notranslate"><span class="pre">sleep</span></code>) на нула секунди. Када се овај код покрене, интерпретатор често пребацује нити код <code class="docutils literal notranslate"><span class="pre">sleep</span></code> позива. То може резултовати следећим редоследом операција:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Нит 0</p></th>
+<th class="head"><p>Нит 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>очитај <code class="docutils literal notranslate"><span class="pre">бројач[0]:</span> <span class="pre">0</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>очитај <code class="docutils literal notranslate"><span class="pre">бројач[0]:</span> <span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>израчунај <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">1:</span> <span class="pre">1</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>упиши <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-&gt;</span> <span class="pre">бројач[0]</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>израчунај <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">1:</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>упиши <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-&gt;</span> <span class="pre">бројач[0]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Крајњи резултат је да бројач има вредност 1, иако је увећан два пута! Још горе, интерпретатор се може врло ретко пребацити у погрешно време, што отежава дебаговање и отклањање грешака. Чак и са <code class="docutils literal notranslate"><span class="pre">sleep</span></code> позивом, овај програм понекад произведе тачну вредност бројача 2, а понекад нетачну вредност 1.</p>
+<p>Овај проблем настаје само у присуству дељених података које једна нит може мењати, односно мутирати док им друга нит приступа. Таква конфликтна ситуација назива се <em>трка услова</em> и представља пример грешке која постоји само у паралелном свету.</p>
+<p>Да би се избегла трка услова, заједнички подаци који могу бити мутирани и којима се може приступати из више нити морају бити заштићени од истовременог приступа. На пример, ако се може осигурати да нит 1 приступи бројачу само након што нит 0 заврши с приступом, или обрнуто, може се гарантовати да се израчунава тачан резултат. Каже се да су дељени подаци <em>синхронизовани</em> ако су заштићени од истовременог приступа. У следећих неколико пододељака биће приказано више механизама који омогућавају и пружају синхронизацију.</p>
+</div>
+<div class="section" id="whennosynchronizationisnecessary">
+<span id="id7"></span><h2>Када није потребна синхронизација<a class="headerlink" href="#whennosynchronizationisnecessary" title="Permalink to this headline">¶</a></h2>
+<p>У неким случајевима приступ дељеним подацима не мора бити синхронизован ако истовремени приступ не може резултовати неисправним понашањем и нетачним резултатом. Најједноставнији пример су подаци који се само очитавају. Будући да такви подаци никада нису промењени, то јест мутирани, све нити ће увек читати исте вредности без обзира када приступају подацима.</p>
+<p>У ретким случајевима дељени подаци који су мутирани можда неће захтевати синхронизацију. Међутим, разумевање када је то случај захтева дубоко знање о томе како интерпретатор и основни софтвер и хардвер раде. Размотрити следећи пример:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ставке</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">заставица</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">потроши</span><span class="p">():</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">заставица</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ставке су&#39;</span><span class="p">,</span> <span class="n">ставке</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">произведи</span><span class="p">():</span>
+    <span class="n">потрошач</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">потроши</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
+    <span class="n">потрошач</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">ставке</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">заставица</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;идемо&#39;</span><span class="p">)</span>
+
+<span class="n">произведи</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Овде нит произвођача додаје ставке у <code class="docutils literal notranslate"><span class="pre">ставке</span></code>, док потрошач чека док заставица није празна. Када произвођач заврши са додавањем ставки, додаје члан у <code class="docutils literal notranslate"><span class="pre">заставица</span></code>, омогућавајући потрошачу да настави.</p>
+<p>У већини Пајтон имплементација, овај пример ће радити исправно. Међутим, уобичајена оптимизација код осталих преводилаца и интерпретатора, па чак и самог хардвера, јесте преуређивање операција унутар једне нити које не зависе једна од друге за податке. У таквом систему, наредба <code class="docutils literal notranslate"><span class="pre">заставица.append('идемо')</span></code> може се преместити и пре петље, јер ниједна не зависи од друге за податке. Уопштено гледано, овакав код требало би избегаватим, осим ако програмер није у потпуности сигуран да основни оперативни систем или хардвер неће променити редослед релевантних операција.</p>
+</div>
+<div class="section" id="synchronizeddatastructures">
+<span id="id8"></span><h2>Синхронизоване структуре података<a class="headerlink" href="#synchronizeddatastructures" title="Permalink to this headline">¶</a></h2>
+<p>Најједноставније средство синхронизације заједничких дељених података је коришћење структуре података која пружа синхронизоване операције. Модул <code class="docutils literal notranslate"><span class="pre">queue</span></code> садржи класу <code class="docutils literal notranslate"><span class="pre">Queue</span></code> која омогућава синхронизован „први улази, први излази” приступ подацима. Метода <code class="docutils literal notranslate"><span class="pre">put</span></code> додаје ставку у <code class="docutils literal notranslate"><span class="pre">Queue</span></code>, а метода <code class="docutils literal notranslate"><span class="pre">get</span></code> преузима ставку. Сама класа осигурава да се ове методе синхронизују, тако да се ставке не губе без обзира на то како су операције нити испреплетане. Ево примера произвођача/потрошача који користи <code class="docutils literal notranslate"><span class="pre">Queue</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+
+<span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">синхронизованоПотроши</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Добио ставку:&#39;</span><span class="p">,</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">task_done</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">синхронизованоПроизведи</span><span class="p">():</span>
+    <span class="n">потрошач</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">синхронизованоПотроши</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
+    <span class="n">потрошач</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">потрошач</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">queue</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="n">синхронизованоПроизведи</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Постоји неколико промена у овом коду, поред <code class="docutils literal notranslate"><span class="pre">Queue</span></code> и <code class="docutils literal notranslate"><span class="pre">get</span></code> и <code class="docutils literal notranslate"><span class="pre">put</span></code> позива. Потрошачка нит је означена као <em>daemon</em> односно демон, што значи да програм неће чекати да се та нит заврши пре изласка. То омогућава да се користи бесконачна петљу у потрошачу. Међутим, мора се осигурати да главна нит изађе, али тек након што се све ставке из <code class="docutils literal notranslate"><span class="pre">Queue</span></code> потроше. Потрошач позива методу <code class="docutils literal notranslate"><span class="pre">task_done</span></code> да обавести <code class="docutils literal notranslate"><span class="pre">Queue</span></code> да је обрада ставке готова, а главна нит позива <code class="docutils literal notranslate"><span class="pre">join</span></code> методу, која чека док се све ставке не обраде, осигуравајући да програм изађе тек након што је то случај.</p>
+<p>Сложенији пример који користи <code class="docutils literal notranslate"><span class="pre">Queue</span></code> је паралелни веб паук који претражује мртве везе на интернет страници. Овај паук прати све везе које хостује иста интернет страница, тако да мора да обрађује одређени број интернет адреса, непрекидно додајући нове у <code class="docutils literal notranslate"><span class="pre">Queue</span></code> и уклањајући интернет адресе за обраду. Коришћењем синхронизованог реда односно <code class="docutils literal notranslate"><span class="pre">Queue</span></code>, више нити може безбедно истовремено додавати и уклањати податке из ове структуре података.</p>
+</div>
+<div class="section" id="locks">
+<span id="id9"></span><h2>Браве<a class="headerlink" href="#locks" title="Permalink to this headline">¶</a></h2>
+<p>Када синхронизована верзија одређене структуре података није доступна, мора се обезбедити сопствена синхронизација. <em>Брава</em> је основни механизам за то. Структуру података може <em>узети</em> највише једна нит, након чега ниједна друга нит је не може узети док је не <em>ослободи</em> нит која ју је претходно узела.</p>
+<p>У Пајтону, модул <code class="docutils literal notranslate"><span class="pre">threading</span></code> садржи класу <code class="docutils literal notranslate"><span class="pre">Lock</span></code> која омогућава закључавање. Класа <code class="docutils literal notranslate"><span class="pre">Lock</span></code> има <code class="docutils literal notranslate"><span class="pre">acquire</span></code> и <code class="docutils literal notranslate"><span class="pre">release</span></code> методе за узимање и ослобађање браве, а класа гарантује да је у једном тренутку може узети само једна нит. Све остале нити које покушавају да узму браву док је она већ држана од стране друге нити присиљене су да сачекају док се не ослободи.</p>
+<p>Да би брава заштитила одређени скуп података, све нити треба да буду програмиране тако да следе правило: ниједна нит неће приступити ниједном дељеном податку уколико није власник те одређене браве. У ствари, све нити морају да „умотају” своје манипулисање дељеним подацима у <code class="docutils literal notranslate"><span class="pre">acquire</span></code> и <code class="docutils literal notranslate"><span class="pre">release</span></code> позиве за ту браву.</p>
+<p>У паралелном веб пауку, скуп се користи за праћење свих интернет адреса на које је наишла било која нит, како би се избегла обрада одређене интернет адресе више пута (и потенцијално заглављивање у кружној петљи или циклусу). Међутим, Пајтон не нуди готове синхронизоване скупове као структуру података, па се мора користити брава да би се заштитио приступ обичном скупу:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">seen_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">already_seen</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">seen_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">seen_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>Овде је неопходна брава како би се спречило да друга нит дода интернет адресу у скуп између тренутака када ова нит проверавала да ли је интернет адреса у скупу и тренутка њеног додавања у скуп. Штавише, додавање скупу није атомска операција, па истовремени покушаји додавања скупу могу оштетити његове интерне податке.</p>
+<p>У претходном коду мора се бити опрезан да се не врати назад док се претходно не ослободи брава. Уопштено, мора се увек осигурати да се брава ослободи када више није потребна. Ово може бити врло склоно грешкама, посебно у присуству изузетака, тако да Пајтон пружа сложену наредбу <code class="docutils literal notranslate"><span class="pre">with</span></code> која управља са узимањем и ослобађањем браве уместо програмера:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">already_seen</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">seen_lock</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Наредба <code class="docutils literal notranslate"><span class="pre">with</span></code> осигурава да је <code class="docutils literal notranslate"><span class="pre">seen_lock</span></code> узет пре него што се изврши његово тело и да се ослободи када се из било ког разлога његово тело напусти. (Наредба <code class="docutils literal notranslate"><span class="pre">with</span></code> се заправо може користити и за друге операције поред закључавања, мада овде неће бити покривене алтернативне намене.)</p>
+<p>Операције које се морају међусобно синхронизовати морају користити исту браву. Међутим, два неповезана скупа операција која се морају синхронизовати само са операцијама у истом скупу треба да користе два различита закључана објекта како би се избегла прекомерна синхронизација.</p>
+</div>
+<div class="section" id="barriers">
+<span id="id10"></span><h2>Баријере<a class="headerlink" href="#barriers" title="Permalink to this headline">¶</a></h2>
+<p>Други начин да се избегне неусаглашен приступ дељеним подацима је подела програма на фазе, осигуравајући да дељени подаци бивају мутирани у фази у којој им ниједна друга нит не приступа. <em>Баријера</em> дели програм на фазе захтевајући од свих нити да га досегну пре него што било која од њих може да настави. Код који се извршава након баријере не може се извршавати истовремено, односно бити конкурентан са кодом који се извршава пре баријере.</p>
+<p>У Пајтону, модул <code class="docutils literal notranslate"><span class="pre">threading</span></code> пружа баријеру у облику методе <code class="docutils literal notranslate"><span class="pre">wait</span></code> инстанце <code class="docutils literal notranslate"><span class="pre">Barrier</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">бројачи</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">баријера</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Barrier</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">бројање</span><span class="p">(</span><span class="n">бројНити</span><span class="p">,</span> <span class="n">кораци</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">кораци</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">други</span> <span class="o">=</span> <span class="n">бројачи</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span> <span class="n">бројНити</span><span class="p">]</span>
+<span class="gp">... </span>        <span class="n">баријера</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span> <span class="c1"># чека да се заврше читања</span>
+<span class="gp">... </span>        <span class="n">бројачи</span><span class="p">[</span><span class="n">бројНити</span><span class="p">]</span> <span class="o">=</span> <span class="n">други</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>        <span class="n">баријера</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span> <span class="c1"># чека да се заврше уписивања</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">нитноБројање</span><span class="p">(</span><span class="n">кораци</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">други</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">бројање</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">кораци</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="n">други</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">бројање</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">кораци</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;бројачи:&#39;</span><span class="p">,</span> <span class="n">бројачи</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">нитноБројање</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">бројачи: [10, 10]</span>
+</pre></div>
+</div>
+<p>У овом примеру, читање и писање заједничких дељених података одвија се у различитим фазама, одвојеним баријерама. Уписи се дешавају у истој фази, али су раздвојени; ова раздвојеност је неопходна да би се избегла истовремена уписивања у исте податке у истој фази. Пошто је овај код правилно синхронизован, оба бројача ће на крају увек бити 10.</p>
+<p>Вишенитни симулатор честица користи баријере на сличан начин за синхронизацију приступа заједничким дељеним подацима. У симулацији, свака нит поседује неки број честица које све међусобно комуницирају током многих дискретних временских корака. Честица има свој положај, брзину и убрзање, а ново убрзање се израчунава у сваком временском кораку на основу положаја осталих честица. Брзина честице мора да се ажурира у складу с тим, а њен положај у складу са њеном брзином.</p>
+<p>Као и код једноставног примера горе, постоји фаза читања, у којој све нити очитавају положај свих честица. Свака нит ажурира убрзања својих честица у овој фази, али с обзиром на то да су то раздвојени уписи, не треба их синхронизовати. У фази уписивања, свака нит ажурира брзине и положаје сопствених честица. Поново, ово су раздвојени уписи који су од фазе читања заштићени баријерама.</p>
+</div>
+<div class="section" id="messagepassing">
+<span id="id11"></span><h2>Преношење порука<a class="headerlink" href="#messagepassing" title="Permalink to this headline">¶</a></h2>
+<p>Коначни механизам за избегавање неправилне мутације заједничких дељених података је потпуно избегавање истовременог приступа истим подацима. У Пајтону, коришћење вишепроцесорске обраде података уместо нити природно даје одговарајући резултат, јер се процеси извршавају у засебним интерпретаторима са сопственим подацима. Било које стање потребно за више процеса може се саопштавати преношењем порука између процеса.</p>
+<p>Класа <code class="docutils literal notranslate"><span class="pre">Pipe</span></code> у <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> модулу садржи комуникациони канал између процеса. Подразумевано је дуплекс, што значи двосмерни канал, иако прослеђивање аргумента <code class="docutils literal notranslate"><span class="pre">False</span></code> резултује једносмерним каналом. Метода <code class="docutils literal notranslate"><span class="pre">send</span></code> шаље објекат преко канала, док метода <code class="docutils literal notranslate"><span class="pre">recv</span></code> прима објекат. Ово друга метода је <em>блокирајућа</em>, што значи да ће процес који позива <code class="docutils literal notranslate"><span class="pre">recv</span></code> сачекати све док се објекат не прими.</p>
+<p>Следи пример произвођача/потрошача који користи процесе и цеви:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">процесПотроши</span><span class="p">(</span><span class="n">улазнаЦев</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">ставка</span> <span class="o">=</span> <span class="n">улазнаЦев</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">ставка</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Добио ставку:&#39;</span><span class="p">,</span> <span class="n">ставка</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">процесПроизведи</span><span class="p">():</span>
+    <span class="n">цев</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pipe</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">потрошач</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">процесПотроши</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">цев</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+    <span class="n">потрошач</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">цев</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">цев</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># сигнал за завршетак комуникације</span>
+
+<span class="n">процесПроизведи</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>У овом примеру користи се порука <code class="docutils literal notranslate"><span class="pre">None</span></code> да се означи завршетак комуникације. Такође је додат један крај цеви као аргумент циљаној функцији приликом стварања потрошачког процеса. То је неопходно, јер се стање мора експлицитно делити између процеса.</p>
+<p>Вишепроцесна варијанта симулатора честица користи цеви за комуникацију и размену информације о положају честица између процеса у сваком временском кораку. У ствари, користи цеви за постављање читавог кружног цевовода између процеса, како би се комуникација свела на минимум. Сваки процес убризгава своје позиције честица у свој део цевовода, које на крају пролазе кроз пун круг у ротацији кроз цевовод. У сваком кораку ротације, процес примењује силе из положаја који су тренутно у његовом делу цевовода на његове сопствене честице, тако да су након пуног круга, односно пуне ротације све силе примењене на све његове честице.</p>
+<p>Модул <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> нуди и пружа и друге механизме синхронизације за процесе, укључујући синхронизоване редове, браве и, од Пајтона 3.3, баријере. На пример, брава или баријера могу се користити за синхронизацију исписа на екран, избегавајући неправилан излаз на екрану који је нешто раније приказан.</p>
+</div>
+<div class="section" id="synchronizationpitfalls">
+<span id="id12"></span><h2>Синхронизационе клопке<a class="headerlink" href="#synchronizationpitfalls" title="Permalink to this headline">¶</a></h2>
+<p>Иако су методе синхронизације ефикасне за заштиту заједничког дељеног стања, могу се користити и неправилно, тако да не успевају да изврше одговарајућу синхронизацију, тако што изврше прекомерну синхронизацију или тако што доводе до тога да се програм заглави као резултат застоја.</p>
+<div class="section" id="under-synchronization">
+<span id="id13"></span><h3>Недовољна синхронизација<a class="headerlink" href="#under-synchronization" title="Permalink to this headline">¶</a></h3>
+<p>Уобичајена клопка у паралелном израчунавању је занемаривање правилне синхронизације дељених приступа. У примеру скупа, мора се заједно синхронизовати провера чланства и уметање, тако да друга нит не може да изврши уметање између ове две операције. Немогућност заједничке синхронизације две операције води ка неисправном понашању, чак и ако су појединачно обе операције синхронизоване.</p>
+</div>
+<div class="section" id="over-synchronization">
+<span id="id14"></span><h3>Прекомерна синхронизација<a class="headerlink" href="#over-synchronization" title="Permalink to this headline">¶</a></h3>
+<p>Друга честа грешка је прекомерна синхронизација програма, тако да се неконфликтне операције не могу извршавати истовремено. Као тривијални пример, увек могу да се избегне сав неусаглашени приступ заједничким дељеним подацима тако што ће се узети главна брава када нит започне и ослободити је тек када се нит заврши. Ово сериализује читав изворни код, тако да ништа више не ради паралелно. У неким случајевима то чак може довести до тога да се програм заглави и остане заглављен у недоглед. На пример, размотрити програм потрошача/произвођача у којем потрошач узима браву и никада је не ослобађа. Ово спречава произвођача да производи било које ставке, што заузврат спречава потрошача да било шта учини, јер нема шта да (по)троши.</p>
+<p>Иако је овај пример тривијалан, у пракси се често дешава да програмери до неке мере превише синхронизују свој изворни код, спречавајући тако да њихов код у потпуности искористи расположив паралелизам.</p>
+</div>
+<div class="section" id="deadlock">
+<span id="id15"></span><h3>Застој<a class="headerlink" href="#deadlock" title="Permalink to this headline">¶</a></h3>
+<p>Будући да узрокују да нити или процеси чекају једни на друге, механизми синхронизације су подложни такозваном <em>застоју</em>, односно ситуацији у којој су две или више нити или процеса запели и чекају једни на друге да се заврше. Управо је приказано како занемаривање ослобађања браве може проузроковати заглављивање нити у недоглед. Међутим, чак и ако нити или процеси исправно ослобађају браве, и даље може доћи до програмског застоја.</p>
+<p>Извор застоја је <em>кружно чекање</em>, приказано у наставку над процесима. Ниједан процес се не може наставити јер чека на друге процесе који и сами чекају да се он сам заврши.</p>
+<img alt="../_images/deadlock.png" class="align-center" src="../_images/deadlock.png" />
+<p>Као пример, биће направљен застој два процеса. Претпоставимо да процеси деле дуплекс цев и покушавају да комуницирају један са другим на следећи начин:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">застој</span><span class="p">(</span><span class="n">улазнаЦев</span><span class="p">,</span> <span class="n">излазнаЦев</span><span class="p">):</span>
+    <span class="n">ставка</span> <span class="o">=</span> <span class="n">улазнаЦев</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Добио ставку:&#39;</span><span class="p">,</span> <span class="n">ставка</span><span class="p">)</span>
+    <span class="n">излазнаЦев</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">ставка</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">направиЗастој</span><span class="p">():</span>
+    <span class="n">цев</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pipe</span><span class="p">()</span>
+    <span class="n">други</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">застој</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">цев</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">цев</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">други</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">застој</span><span class="p">(</span><span class="n">цев</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">цев</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">направиЗастој</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Оба процеса прво покушавају да приме податке. Подсетимо се да се метода <code class="docutils literal notranslate"><span class="pre">recv</span></code> блокира док ставка не постане доступна. Будући да ниједан процес није послао ништа, оба процеса ће неограничено чекати да му онај други пошаље податке, што ће резултовати застојем.</p>
+<p>Операције синхронизације морају бити правилно усклађене како би се избегао застој. То може захтевати слање преко цеви пре пријема, узимање више брава истим редоследом и осигуравање да све нити досегну праву баријеру у право време.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<span id="id16"></span><h2>Закључак<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Као што је виђено, паралелизам представља нове изазове у писању исправног и ефикасног кода. Како ће се тренд повећања паралелизма на хардверском нивоу наставити у догледно време, паралелно израчунавање ће постати све важније у програмирању апликација. Постоје врло активни истраживачки напори који за циљ имају да паралелизацију за програмере олакшају и учине је мање подложну грешкама. Ова дискусија на овом месту служи само као основни увод у једно од кључних подручја рачунарства.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Садржај</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Паралелна обрада</a><ul>
+<li><a class="reference internal" href="#parallelisminpython">Паралелизам у Пајтону</a><ul>
+<li><a class="reference internal" href="#threading">Нити</a></li>
+<li><a class="reference internal" href="#multiprocessing">Вишепроцесорска обрада</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#theproblemwithsharedstate">Проблем с дељеним стањима</a></li>
+<li><a class="reference internal" href="#whennosynchronizationisnecessary">Када није потребна синхронизација</a></li>
+<li><a class="reference internal" href="#synchronizeddatastructures">Синхронизоване структуре података</a></li>
+<li><a class="reference internal" href="#locks">Браве</a></li>
+<li><a class="reference internal" href="#barriers">Баријере</a></li>
+<li><a class="reference internal" href="#messagepassing">Преношење порука</a></li>
+<li><a class="reference internal" href="#synchronizationpitfalls">Синхронизационе клопке</a><ul>
+<li><a class="reference internal" href="#under-synchronization">Недовољна синхронизација</a></li>
+<li><a class="reference internal" href="#over-synchronization">Прекомерна синхронизација</a></li>
+<li><a class="reference internal" href="#deadlock">Застој</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusion">Закључак</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="7-%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D1%99%D0%B5%D0%BD%D0%B0-%D0%BE%D0%B1%D1%80%D0%B0%D0%B4%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html"
+                        title="претходна глава">Расподељена обрада података</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="../%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA/%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA.html"
+                        title="наредна глава">Закључак</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава4/8-паралелна-обрада.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="../%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA/%D0%B7%D0%B0%D0%BA%D1%99%D1%83%D1%87%D0%B0%D0%BA.html" title="Закључак"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="7-%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D1%99%D0%B5%D0%BD%D0%B0-%D0%BE%D0%B1%D1%80%D0%B0%D0%B4%D0%B0-%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0.html" title="Расподељена обрада података"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Обрада података</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Паралелна обрада</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

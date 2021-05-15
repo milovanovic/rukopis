@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пројектовање функција &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Управљање" href="5-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D1%99%D0%B0%D1%9A%D0%B5.html" />
+    <link rel="prev" title="Дефинисање нових функција" href="3-%D0%B4%D0%B5%D1%84%D0%B8%D0%BD%D0%B8%D1%81%D0%B0%D1%9A%D0%B5-%D0%BD%D0%BE%D0%B2%D0%B8%D1%85-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="5-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D1%99%D0%B0%D1%9A%D0%B5.html" title="Управљање"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="3-%D0%B4%D0%B5%D1%84%D0%B8%D0%BD%D0%B8%D1%81%D0%B0%D1%9A%D0%B5-%D0%BD%D0%BE%D0%B2%D0%B8%D1%85-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html" title="Дефинисање нових функција"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Апстракција функцијама</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Пројектовање функција</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="designingfunctions">
+<span id="id1"></span><h1>Пројектовање функција<a class="headerlink" href="#designingfunctions" title="Permalink to this headline">¶</a></h1>
+<p>Функције су суштински састојак свих програма, дужих и краћих, и служе као основно средство за изражавање тока израчунавања у програмском језику. У досадашњем делу, разматране су формалне особине функција и начин на који су примењиване. Сада су тема елементи који чине добру функцију. У основи, сви квалитети добрих функција поткрепљују идеју да су функције апстракције.</p>
+<ul class="simple">
+<li><p>Свака функција треба да ради тачно један посао. Тај посао треба бити препознатљив по кратком имену и описив једном реченицом. Функције које извршавају више послова у низу треба поделити у више функција.</p></li>
+<li><p>Не понављај се (енг. <em>Don’t repeat yourself</em>) је централно начело у развоју софтвера. Овај принцип циља смањивање понављања шаблона кроз употребу апстракције како би се избегла излишност кода. Другим речима, одређена логика треба бити описана једном, затим именована, и примењена више пута. Сваки део изворног кода који се копира с једног места на друго, врло вероватно указује на могућност функционалне апстракције.</p></li>
+<li><p>Функције треба да буду опште. Квадрирања нема у Пајтоновој стандардној библиотеци управо зато што је само специјалан случај степеновања, односно <code class="docutils literal notranslate"><span class="pre">pow</span></code> функције.</p></li>
+</ul>
+<p>Претходне смернице побољшавају читљивост изворног кода, умањују број грешака и често смањују укупну дужину кода. Разлагање сложених задатака на јасне и сажете функције је вештина за коју је неопходно искуство да би се усавршила. Срећом, Пајтон намеће пар одлика које подржавају ове напоре.</p>
+<div class="section" id="docstrings">
+<span id="id2"></span><h2>Документација<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h2>
+<p>Дефиниција функције често укључује и документацију под називом <em>докниска</em> (енг. <em>docstring</em>) која описује функцију, а која је такође увучена и поравната са телом функције. По конвенцији, докниске се означавају троструким знаком навода. Обично први ред укратко описује посао функције. Наредни редови могу описивати аргументе, односно параметре функције и дати појашњење њеног понашања:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">притисак</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Рачуна притисак идеалног гаса у паскалима.</span>
+<span class="gp">...</span><span class="sd"></span>
+<span class="gp">... </span><span class="sd">    Примењује једначину стања идеалног гаса:</span>
+<span class="gp">... </span><span class="sd">    http://sr.wikipedia.org/wiki/Једначина_стања_идеалног_гаса</span>
+<span class="gp">...</span><span class="sd"></span>
+<span class="gp">... </span><span class="sd">    v -- запремина гаса, у кубним метрима</span>
+<span class="gp">... </span><span class="sd">    t -- апсолутна температура у келвинима</span>
+<span class="gp">... </span><span class="sd">    n -- број честица у гасу</span>
+<span class="gp">... </span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="n">k</span> <span class="o">=</span> <span class="mf">1.38e-23</span>   <span class="c1"># Болцманова константа</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">v</span>
+</pre></div>
+</div>
+<p>Када се позове <code class="docutils literal notranslate"><span class="pre">help</span></code> са именом функције као аргументом, биће приказана докниска.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">притисак</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>Приликом писања програма у Пајтону, добро је укључити докниске за све изузев најједноставнијих функција. Треба запамтити правило које каже да се код обично пише само једном, али се чита више пута. Пајтонова документација обухвата и <a class="reference external" href="http://www.python.org/dev/peps/pep-0257">смернице за докниске</a> које упостављају одређену доследност у начину писања кроз различите Пајтонове пројекте.</p>
+<div class="section" id="comments">
+<span id="id4"></span><h3>Коментари<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>Коментари у Пајтону могу се надовезати на крај реда након <code class="docutils literal notranslate"><span class="pre">#</span></code> знака. На пример, коментар <code class="docutils literal notranslate"><span class="pre">Болцманова</span> <span class="pre">константа</span></code> у претходном примеру ближе описује <code class="docutils literal notranslate"><span class="pre">k</span></code>. Коментари се не појављују приликом <code class="docutils literal notranslate"><span class="pre">help</span></code> позива и у потпуности су игнорисани од стране интерпретатора. Коментари постоје искључиво зарад људи.</p>
+</div>
+</div>
+<div class="section" id="defaultargumentvalues">
+<span id="id5"></span><h2>Подразумеване вредности<a class="headerlink" href="#defaultargumentvalues" title="Permalink to this headline">¶</a></h2>
+<p>Једна од последица дефинисања општих функција јесте увођење додатних аргумената. Фукнције са много параметара могу бити незграпне за позиве и тешке за читање.</p>
+<p>У Пајтону, могуће је доделити подразумеване вредности аргументима функције. Приликом позива такве функције, аргументе са подразумеваним вредностима није обавезно наводити. Уколико нису наведене, подразумевана вредност се везује за име параметра. На пример, ако се притисак обично рачуна за један мол честица, ова вредност се може навести као подразумевана:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">притисак</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mf">6.022e23</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Рачуна притисак идеалног гаса у паскалима.</span>
+<span class="gp">...</span><span class="sd"></span>
+<span class="gp">... </span><span class="sd">    Примењује једначину стања идеалног гаса:</span>
+<span class="gp">... </span><span class="sd">    http://sr.wikipedia.org/wiki/Једначина_стања_идеалног_гаса</span>
+<span class="gp">...</span><span class="sd"></span>
+<span class="gp">... </span><span class="sd">    v -- запремина гаса, у кубним метрима</span>
+<span class="gp">... </span><span class="sd">    t -- апсолутна температура у келвинима</span>
+<span class="gp">... </span><span class="sd">    n -- број честица у гасу</span>
+<span class="gp">... </span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="n">k</span> <span class="o">=</span> <span class="mf">1.38e-23</span>   <span class="c1"># Болцманова константа</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">v</span>
+</pre></div>
+</div>
+<p>Знак <code class="docutils literal notranslate"><span class="pre">=</span></code> има двојако значење у претходном примеру, у зависности од контекста у коме се користи. У заглављу <code class="docutils literal notranslate"><span class="pre">def</span></code> наредбе, знак <code class="docutils literal notranslate"><span class="pre">=</span></code> не врши доделу вредности, већ уместо тога указује на подразумевану вредност аргумента која се користи приликом позива функције <code class="docutils literal notranslate"><span class="pre">притисак</span></code>. Насупрот томе, наредба доделе вредности унутар тела функције повезује променљиву <code class="docutils literal notranslate"><span class="pre">k</span></code> са приближном вредношћу Болцманове константе.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">притисак</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">273.15</span><span class="p">)</span>
+<span class="go">2269.974834</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">притисак</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">273.15</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">6.022e23</span><span class="p">)</span>
+<span class="go">6809.924502</span>
+</pre></div>
+</div>
+<p>Функција <code class="docutils literal notranslate"><span class="pre">притисак</span></code> је дефинисана тако да прима три аргумента, али су само два прослеђена у првом позиву претходног примера. У овом случају, подразумевана вредност је додељена аргументу <code class="docutils literal notranslate"><span class="pre">n</span></code>. За случај да је функцији прослеђен трећи аргумент, подразумевана вредност бива занемарена.</p>
+<p>Као смерница, већина вредности података које се користе у телу функције треба да се изразе као подразумеване вредности именованих аргумената, тако да их је лако прегледати, проверити, али и променити од стране позиваоца функције. Неке вредности које се никада не мењају, као што је фундаментална физичка константа <span class="math notranslate nohighlight">\(k\)</span>, могу бити повезане унутар тела  функције или у глобалном оквиру.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Садржај</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Пројектовање функција</a><ul>
+<li><a class="reference internal" href="#docstrings">Документација</a><ul>
+<li><a class="reference internal" href="#comments">Коментари</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#defaultargumentvalues">Подразумеване вредности</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="3-%D0%B4%D0%B5%D1%84%D0%B8%D0%BD%D0%B8%D1%81%D0%B0%D1%9A%D0%B5-%D0%BD%D0%BE%D0%B2%D0%B8%D1%85-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html"
+                        title="претходна глава">Дефинисање нових функција</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="5-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D1%99%D0%B0%D1%9A%D0%B5.html"
+                        title="наредна глава">Управљање</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава1/4-пројектовање-функција.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="5-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D1%99%D0%B0%D1%9A%D0%B5.html" title="Управљање"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="3-%D0%B4%D0%B5%D1%84%D0%B8%D0%BD%D0%B8%D1%81%D0%B0%D1%9A%D0%B5-%D0%BD%D0%BE%D0%B2%D0%B8%D1%85-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html" title="Дефинисање нових функција"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Апстракција функцијама</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Пројектовање функција</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

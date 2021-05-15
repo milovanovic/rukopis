@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Управљање &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Функције вишег реда" href="6-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5-%D0%B2%D0%B8%D1%88%D0%B5%D0%B3-%D1%80%D0%B5%D0%B4%D0%B0.html" />
+    <link rel="prev" title="Пројектовање функција" href="4-%D0%BF%D1%80%D0%BE%D1%98%D0%B5%D0%BA%D1%82%D0%BE%D0%B2%D0%B0%D1%9A%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="6-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5-%D0%B2%D0%B8%D1%88%D0%B5%D0%B3-%D1%80%D0%B5%D0%B4%D0%B0.html" title="Функције вишег реда"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="4-%D0%BF%D1%80%D0%BE%D1%98%D0%B5%D0%BA%D1%82%D0%BE%D0%B2%D0%B0%D1%9A%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html" title="Пројектовање функција"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Апстракција функцијама</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Управљање</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="control">
+<span id="id1"></span><h1>Управљање<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h1>
+<p>Изражајна моћ функција које је могуће дефинисати у овом тренутку је прилично ограничена због тога што још увек није уведен начин поређења и извођења различитих операција у зависности од исхода поређења. <em>Наредбе управљања</em> дају управо ову могућност. Наиме, ове наредбе управљају током извршења програма на основу исхода логичких поређења.</p>
+<p>Наредбе се суштински разликују од израза који су разматрани до овог тренутка. Оне немају вредност. Уместо израчунавања нечега, извршавање управљачких наредби одређује шта следеће интерпретатор треба да уради.</p>
+<div class="section" id="statements">
+<span id="id2"></span><h2>Наредбе<a class="headerlink" href="#statements" title="Permalink to this headline">¶</a></h2>
+<p>У претходним одељцима првенствено је разматрано како вредновати изразе. Међутим, до сада су већ виђене три врсте наредби: наредба доделе, као и <code class="docutils literal notranslate"><span class="pre">def</span></code> и <code class="docutils literal notranslate"><span class="pre">return</span></code> наредбе. Ове наредбе саме по себи нису изрази, иако све оне садрже изразе као свој саставни део.</p>
+<p>Уместо вредновања, наредбе се <em>извршавају</em>. Свака наредба описује неку промену у стању интерпретатора, а извршавање наредбе спроводи ту промену. Као што је већ виђено за <code class="docutils literal notranslate"><span class="pre">return</span></code> и наредбу доделе, извршавање наредби може укључити и вредновање подизраза садржаних у њима.</p>
+<p>Изрази се такође могу извршити као наредбе, при чему се они заправо вреднују, али њихова вредност бива одбачена. Извршавање чисте функције нема пропратне ефекте, али извршавање нечистих функција може за последицу имати такозване бочне ефекте.</p>
+<p>Размотрити, на пример,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">квадрат</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c1"># Пажња! Овај позив функције не враћа вредност.</span>
+</pre></div>
+</div>
+<p>Иако је овај пример исправан, вероватно је његова намера била нешто другачија. Тело функције се састоји од једног израза. Израз сам по себи јесте исправна наредба, али је последица наредбе та да је <code class="docutils literal notranslate"><span class="pre">mul</span></code> функција позвана, а њен резултат одбачен. Уколико се жели урадити нешто с резултатом израза, потребно је сачувати га наредбом доделе или га вратити <code class="docutils literal notranslate"><span class="pre">return</span></code> наредбом:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">квадрат</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Понекад има смисла дефинисати функцију чије је тело израз, када се у њему позива нечиста функција, као што је <code class="docutils literal notranslate"><span class="pre">print</span></code>, на пример.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">штампајКвадрат</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">квадрат</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>На највишем нивоу, посао Пајтоновог интерпретатора јесте да извршава програме који су састављени из наредби. Међутим, велики удео занимљивих рачунања долази од вредновања израза. Наредбе управљају односима између различитих израза у програму и одређују шта се дешава с резултатима.</p>
+</div>
+<div class="section" id="compoundstatements">
+<span id="id3"></span><h2>Сложене наредбе<a class="headerlink" href="#compoundstatements" title="Permalink to this headline">¶</a></h2>
+<p>Углавном, Пајтонов изворни код представља низ наредби. Проста наредба јесте један ред који се не завршава двотачком. Сложена наредба се тако назива због тога што је састављена из других наредби (простих и сложених). Сложене наредбе обично се протежу на више редова и почињу заглављем у једном реду са двотачком као завршетком, које идентификује врсту наредбе. Заглавље заједно са увученим пакетом наредби које следе се назива клаузула. Сложена наредба се састоји из једне или више клаузула:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">заглавље</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">наредба</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">наредба</span><span class="o">&gt;</span>
+    <span class="o">...</span>
+<span class="o">&lt;</span><span class="n">раздвајајуће</span> <span class="n">заглавље</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">наредба</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">наредба</span><span class="o">&gt;</span>
+    <span class="o">...</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Наредбе које су већ уведене могу се разумети на следећи начин.</p>
+<ul class="simple">
+<li><p>Изрази, <code class="docutils literal notranslate"><span class="pre">return</span></code> наредбе и наредбе доделе су просте наредбе.</p></li>
+<li><p>Наредба, <code class="docutils literal notranslate"><span class="pre">def</span></code> је сложена наредба. Пакет увучених наредби које следе <code class="docutils literal notranslate"><span class="pre">def</span></code> заглавље дефинишу тело функције.</p></li>
+</ul>
+<p>Специјализована правила вредновања за сваку врсту заглавља диктирају када и да ли ће наредбе из одговарајућег пакета бити извршене. Каже се да заглавље управља својим пакетом наредби. На пример, у случају <code class="docutils literal notranslate"><span class="pre">def</span></code> наредби, <code class="docutils literal notranslate"><span class="pre">return</span></code> израз није вреднован одмах, већ је уместо тога сачуван за каснију употребу када се дефинисана функција коначно позове.</p>
+<p>Сада је могуће разумети и програме који садрже више од једног реда.</p>
+<ul class="simple">
+<li><p>Да би се извршио низ наредби, извршити најпре прву наредбу. Уколико та наредба не преусмерава управљање, наставити са извршавањем преосталих наредби у низу, ако их има.</p></li>
+</ul>
+<p>Ова дефиниција излаже суштинску структуру резурзивно дефинисаних <em>низова</em>: низ може бити растављен на свој први члан и остатак својих чланова. „Остатак” низа наредби јесте сам по себи низ наредби! Отуда, могуће је рекурзивно применити ово правило извршавања. Ово гледиште на низове као на рекурзивну структуру података појавиће се поново у каснијим поглављима.</p>
+<p>Важна последица овог правила је да се наредбе извршавају у редоследу, иако је могуће да се до наредби које следе никада неће стићи због преусмереног управљања.</p>
+<p>Практична смерница јесте да приликом увлачења пакета наредби, сви редови морају бити увучени подједнако (користећи размаке). Свака варијација увлачења изазваће грешку.</p>
+</div>
+<div class="section" id="ii">
+<h2>Дефинисање функција II: локална додела<a class="headerlink" href="#ii" title="Permalink to this headline">¶</a></h2>
+<p>Првобитно је речено да се тело кориснички дефинисаних функција састоји само од <code class="docutils literal notranslate"><span class="pre">return</span></code> наредбе са једним изразом. Заправо, функције могу дефинисати низ операција које се продужавају преко једног израза.</p>
+<p>Кад год је кориснички дефинисана функција позвана, низ клаузула унутар пакета наредби њене дефиниције се извршава у такозваном локалном окружењу, односно окружењу које покреће локални оквир створен позивом дате функције. Наредба <code class="docutils literal notranslate"><span class="pre">return</span></code> преусмерава управљање: процес позива функције се завршава кад год се наиђе и изврши прва <code class="docutils literal notranslate"><span class="pre">return</span></code> наредба и вредност израза који је следи јесте повратна вредност позване функције.</p>
+<p>Наредбе доделе се могу појавити унутар тела функције. На пример, следећа функција враћа апсолутну разлику између две вредности као проценат прве, користећи се израчунавањем у два корака:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">проценатРазлике</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">разлика</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">разлика</span> <span class="o">/</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">проценатРазлике</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="go">25.0</span>
+</pre></div>
+</div>
+<p>Ефекат наредбе доделе вредности јесте повезивање имена на вредности у <em>првом</em> оквиру тренутног окружења. Као последица, наредбе доделе унутар тела функције не утичу на глобални оквир. Чињеница да функције могу утицати само на своје локално окружење је критична за прављење <em>модуларних</em> програма, у којима чисте функције комуницирају само преко вредности које узимају и враћају.</p>
+<p>Наравно, функција <code class="docutils literal notranslate"><span class="pre">проценатРазлике</span></code> се могла написати и као један израз, као што је приказано у наставку, али је повратни израз нешто сложенији.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">проценатРазлике</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="mi">100</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">проценатРазлике</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="go">25.0</span>
+</pre></div>
+</div>
+<p>За сада, локална додела није повећала изражајну моћ дефиниција функције. Повећаће је, када се удружи са осталим наредбама управљања. Додатно, локална додела такође игра критичну улогу у разјашњењу значења сложених израза кроз давање имена међурезултатима.</p>
+</div>
+<div class="section" id="conditionalstatements">
+<span id="id4"></span><h2>Условне наредбе<a class="headerlink" href="#conditionalstatements" title="Permalink to this headline">¶</a></h2>
+<p>Пајтон поседује уграђену функцију за израчунавање апсолутне вредности.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>Поставља се питање како самостално направити ову функцију, пошто нема очигледног начина да се дефинише функција која врши поређење и избор. Суштински, треба изразити да ако је <code class="docutils literal notranslate"><span class="pre">x</span></code> позитивно, <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> враћа <code class="docutils literal notranslate"><span class="pre">x</span></code>. Штавише, ако је <code class="docutils literal notranslate"><span class="pre">x</span></code> нула, <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> такође враћа нулу. Иначе, ако је <code class="docutils literal notranslate"><span class="pre">x</span></code> негативно, <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> враћа <code class="docutils literal notranslate"><span class="pre">-x</span></code>. У Пајтону, овај избор се може изразити условном наредбом.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">апсолутнаВредност</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Рачуна abs(x).&quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>       <span class="k">return</span> <span class="n">x</span>
+<span class="gp">... </span>    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>       <span class="k">return</span> <span class="mi">0</span>
+<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>       <span class="k">return</span> <span class="o">-</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">апсолутнаВредност</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>Ова имплементација функције <code class="docutils literal notranslate"><span class="pre">апсолутнаВредност</span></code> поставља неколико важних питања.</p>
+<div class="section" id="id5">
+<h3>Условне наредбе<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Условна наредба у Пајтону се састоји из низа заглавља и пакета наредби: обавезна <code class="docutils literal notranslate"><span class="pre">if</span></code> клаузула, необавезан низ <code class="docutils literal notranslate"><span class="pre">elif</span></code> клаузула, и коначно необавезна <code class="docutils literal notranslate"><span class="pre">else</span></code> клаузула:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">израз</span><span class="o">&gt;</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">пакет</span><span class="o">&gt;</span>
+<span class="k">elif</span> <span class="o">&lt;</span><span class="n">израз</span><span class="o">&gt;</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">пакет</span><span class="o">&gt;</span>
+<span class="k">else</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">пакет</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Приликом извршавања условне наредбе, свака клаузула се разматра по редоследу. Рачунски поступак извршавања условних клаузула следи.</p>
+<ol class="arabic simple">
+<li><p>Вредновање израза у заглављу.</p></li>
+<li><p>Уколико је његова вредност тачна, изврши увучени пакет наредби који следи и прескочи све наредне клаузуле у условној наредби.</p></li>
+</ol>
+<p>Уколико се дође до <code class="docutils literal notranslate"><span class="pre">else</span></code> клаузуле (што се само догађа ако се <code class="docutils literal notranslate"><span class="pre">if</span></code> и сви <code class="docutils literal notranslate"><span class="pre">elif</span></code> изрази вреднују у нетачну вредност), тада се њен увучени пакет наредби израчунава.</p>
+</div>
+<div class="section" id="id6">
+<h3>Логички контекст<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Горњи поступак извршавања помиње „нетачну вредност” и „тачну вредност”. Изрази унутар заглавља условних наредби су у такозваном <em>логичком контексту</em>: њихова вредност је од значаја за управљање током извршавања, али иначе та вредност нити бива враћена нити додељена. Пајтон обухвата неколико нетачних вредности које укључују <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code> и <em>логичку</em> вредност <code class="docutils literal notranslate"><span class="pre">False</span></code>. Сви други бројеви имају тачне вредности. У следећем поглављу, биће приказано како свака уграђена врста података у Пајтону има и тачне и нетачне вредности.</p>
+</div>
+<div class="section" id="id7">
+<h3>Логичке вредности<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Пајтон има две логичке вредности, и то <code class="docutils literal notranslate"><span class="pre">True</span></code> и <code class="docutils literal notranslate"><span class="pre">False</span></code>. Логичке вредности представљају вредности у логичким изразима. Уграђени оператори поређења, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, враћају ове вредности.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">2</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;=</span> <span class="mi">5</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Други пример има значење „5 је веће или једнако од 5”, и одговара функцији <code class="docutils literal notranslate"><span class="pre">ge</span></code> из <code class="docutils literal notranslate"><span class="pre">operator</span></code> модула.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span> <span class="o">==</span> <span class="o">-</span><span class="mi">0</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Овај последњи пример има значење „0 је једнака -0”, и одговара функцији <code class="docutils literal notranslate"><span class="pre">eq</span></code> из <code class="docutils literal notranslate"><span class="pre">operator</span></code> модула. Ваља запазити да Пајтон разликује доделу (<code class="docutils literal notranslate"><span class="pre">=</span></code>) од провере једнакости (<code class="docutils literal notranslate"><span class="pre">==</span></code>), што је конвенција која важи у многим програмским језицима.</p>
+</div>
+<div class="section" id="id8">
+<h3>Логички оператори<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Три основна логичка оператора су такође уграђени у Пајтон:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="kc">False</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Логички изрази имају одговарајуће поступке вредновања. Ови поступци користе чињеницу да се логичке вредности логичких израза некада могу одредити без вредновања свих подизраза, што је одлика која се често у жаргону назива <em>кратко спајање</em> по аналогији из области електронике.</p>
+<p>За вредновање израза <code class="docutils literal notranslate"><span class="pre">&lt;леви&gt;</span> <span class="pre">and</span> <span class="pre">&lt;десни&gt;</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Вредновати подизраз <code class="docutils literal notranslate"><span class="pre">&lt;леви&gt;</span></code>.</p></li>
+<li><p>Уколико је резултат нетачна вредност <code class="docutils literal notranslate"><span class="pre">в</span></code>, тада се израз вреднује у <code class="docutils literal notranslate"><span class="pre">в</span></code>.</p></li>
+<li><p>Иначе, израз се вреднује у вредност подизраза <code class="docutils literal notranslate"><span class="pre">&lt;десни&gt;</span></code>.</p></li>
+</ol>
+<p>За вредновање израза <code class="docutils literal notranslate"><span class="pre">&lt;леви&gt;</span> <span class="pre">or</span> <span class="pre">&lt;десни&gt;</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Вредновати подизраз <code class="docutils literal notranslate"><span class="pre">&lt;леви&gt;</span></code>.</p></li>
+<li><p>Уколико је резултат тачна вредност <code class="docutils literal notranslate"><span class="pre">в</span></code>, тада се израз вреднује у <code class="docutils literal notranslate"><span class="pre">в</span></code>.</p></li>
+<li><p>Иначе, израз се вреднује у вредност подизраза <code class="docutils literal notranslate"><span class="pre">&lt;десни&gt;</span></code>.</p></li>
+</ol>
+<p>За вредновање израза <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">&lt;израз&gt;</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Вредновати <code class="docutils literal notranslate"><span class="pre">&lt;израз&gt;</span></code>; Вредност је <code class="docutils literal notranslate"><span class="pre">True</span></code> ако је резултат израчунавања нека од нетачних вредности, а <code class="docutils literal notranslate"><span class="pre">False</span></code> иначе.</p></li>
+</ol>
+<p>Ове вредности, правила и оператори обезбеђују начин комбиновања резултата поређења. Функције које врше поређења и враћају логичку вредност често почињу са <code class="docutils literal notranslate"><span class="pre">is</span></code> без доње црте у наставку, као <code class="docutils literal notranslate"><span class="pre">isfinite</span></code>, <code class="docutils literal notranslate"><span class="pre">isdigit</span></code>, <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>, примера ради.</p>
+</div>
+</div>
+<div class="section" id="iteration">
+<span id="id9"></span><h2>Итерација<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
+<p>Поред избора наредби које ће се извршити, наредбе управљања се користе да изразе понављања. Уколико би се свака написана линија кода извршила једном, програмирање би било прилично непродуктиван посао. Само кроз поновно извршавање наредби пун потенцијал рачунара бива искоришћен. До сада је виђен један облик понављања: функција може бити позвана много пута, иако је дефинисана само једном. Итеративне управљачке структуре су други механизам за извршавање исте наредбе више пута.</p>
+<p>Размотрити Фибоначијев низ бројева у коме је сваки члан једнак збиру претходна два:</p>
+<p>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, …</p>
+<p>Свака вредност је израђена у више наврата примењујући правило збира претходна два члана. Први и други члан низа су постављени на 0 и 1. На пример, осми Фибоначијев број је 13.</p>
+<p>Може се искористити <code class="docutils literal notranslate"><span class="pre">while</span></code> наредба да се изброји <code class="docutils literal notranslate"><span class="pre">n</span></code>-ти Фибоначијев број. Потребно је пратити колико је чланова израчунато (<code class="docutils literal notranslate"><span class="pre">k</span></code>), као и вредности <code class="docutils literal notranslate"><span class="pre">k</span></code>-тог члана (<code class="docutils literal notranslate"><span class="pre">тренутни</span></code>) и његовог претходника (<code class="docutils literal notranslate"><span class="pre">претходни</span></code>). У променљивој <code class="docutils literal notranslate"><span class="pre">тренутни</span></code> смењиваће се Фибоначијеви бројеви баш као у наредној функцији.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">фиб</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Израчунава n-ти Фибоначијев број, за n &gt;= 2.&quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="n">претходни</span><span class="p">,</span> <span class="n">тренутни</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>   <span class="c1"># први и други Фибоначијев број</span>
+<span class="gp">... </span>    <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>                        <span class="c1"># тренутни Фибоначијев број</span>
+<span class="gp">... </span>    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">претходни</span><span class="p">,</span> <span class="n">тренутни</span> <span class="o">=</span> <span class="n">тренутни</span><span class="p">,</span> <span class="n">претходни</span> <span class="o">+</span> <span class="n">тренутни</span>
+<span class="gp">... </span>        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">тренутни</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">фиб</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">13</span>
+</pre></div>
+</div>
+<p>Треба упамтити да запете раздвајају вишеструка имена променљивих и вредности унутар наредбе доделе. Ред:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">претходни</span><span class="p">,</span> <span class="n">тренутни</span> <span class="o">=</span> <span class="n">тренутни</span><span class="p">,</span> <span class="n">претходни</span> <span class="o">+</span> <span class="n">тренутни</span>
+</pre></div>
+</div>
+<p>има за последицу превезивања имена <code class="docutils literal notranslate"><span class="pre">претходни</span></code> на вредност од <code class="docutils literal notranslate"><span class="pre">тренутни</span></code> и истовременог превезивања имена <code class="docutils literal notranslate"><span class="pre">тренутни</span></code> на вредност од <code class="docutils literal notranslate"><span class="pre">претходни</span> <span class="pre">+</span> <span class="pre">тренутни</span></code>. Сви изрази који се налазе с десне стране <code class="docutils literal notranslate"><span class="pre">=</span></code> се израчунавају пре него што се превезивање заправо деси.</p>
+<p>Редослед догађаја — израчунавање свега с десне стране <code class="docutils literal notranslate"><span class="pre">=</span></code> пре ажурирања и повезивања леве стране — је суштински за исправност ове функције.</p>
+<p>Клаузула <code class="docutils literal notranslate"><span class="pre">while</span></code> садржи заглавље израза праћен увученим пакетом наредби:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">израз</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">пакет</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>За извршавање <code class="docutils literal notranslate"><span class="pre">while</span></code> клаузуле:</p>
+<ol class="arabic simple">
+<li><p>Вредновати израз из заглавља.</p></li>
+<li><p>Уколико је вредност тачна, извршити увучени пакет наредби и вратити се на претходни корак.</p></li>
+</ol>
+<p>У другом кораку, читав увучени пакет наредби <code class="docutils literal notranslate"><span class="pre">while</span></code> клаузуле је извршен пре него што је израз из заглавља поново вреднован.</p>
+<p>Како би се спречило да се увучени пакет наредби <code class="docutils literal notranslate"><span class="pre">while</span></code> клаузуле извршава у недоглед, наредбе у увученом пакету увек треба да мењају вредности неких променљивих у сваком пролазу.</p>
+<p>Наредба <code class="docutils literal notranslate"><span class="pre">while</span></code> која се никада не завршава се још назива и бесконачна или мртва петља. Притиском на <code class="docutils literal notranslate"><span class="pre">&lt;Control&gt;</span></code> + <code class="docutils literal notranslate"><span class="pre">C</span></code> може се приморати Пајтонов интерпретатор да заустави извршавање петље.</p>
+</div>
+<div class="section" id="testing">
+<span id="id10"></span><h2>Тестирање<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p><em>Тестирање</em> функција је поступак провере да понашање функције одговара очекивањима. Како је језик функција постао довољно сложен, неопходно је тестирати имплементације.</p>
+<p><em>Тест</em> је механизам за систематско извођење поменутих провера. Тестови обично долазе у облику других функција које садрже један или више пробних позива функција које се тестирају. Враћене вредности се тада упоређују са очекиваним резултатима. За разлику од већине функција, чија је намера да буду што општије, тестови обухватају избор и проверу позива за специфичне вредности аргумената. Тестови такође служе као документација: они показују како позвати функцију за неке прикладне вредности параметара.</p>
+<div class="section" id="id11">
+<h3>Провере<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Програмери користе <code class="docutils literal notranslate"><span class="pre">assert</span></code> наредбе како би проверили очекивања као што је излаз тестиране функције. Наредбу <code class="docutils literal notranslate"><span class="pre">assert</span></code> прати израз у логичком контексту, праћен текстом под знаковима навода (једноструким или двоструким) који ће бити приказан ако је резултат вредновања израза нетачна вредност.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">фиб</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;Осми Фибоначијев број би требало да је 13&#39;</span>
+</pre></div>
+</div>
+<p>Када је резултат вредновања израза који се проверава тачна вредност, извршење <code class="docutils literal notranslate"><span class="pre">assert</span></code> наредбе нема ефекта. Када је резултат вредновања нетачна вредност, <code class="docutils literal notranslate"><span class="pre">assert</span></code> пријављује грешку и зауставља извршавање.</p>
+<p>Тест функција за <code class="docutils literal notranslate"><span class="pre">фиб</span></code> би требала да тестира неколико аргумената, укључујући и неке екстремне вредности <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">фибТест</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">фиб</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Други Фибоначијев број би требало да је 1&#39;</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">фиб</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Трећи Фибоначијев број би требало да је 1&#39;</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">фиб</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7778742049</span><span class="p">,</span> <span class="s1">&#39;Грешка на педесетом Фибоначијевом броју&#39;</span>
+</pre></div>
+</div>
+<p>Када се Пајтон код записује у датотеку, уместо директно у интерпретатор, тестови се типично пишу у истој или у суседној датотеци са наставком <code class="docutils literal notranslate"><span class="pre">_test.py</span></code> или <code class="docutils literal notranslate"><span class="pre">_тест.py</span></code>.</p>
+</div>
+<div class="section" id="id12">
+<h3>Доктестови<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Пајтон пружа згодан начин за постављање једноставних тестова директно у докниску функције. Први ред докниске би требало да садржи кратак опис функције праћен празним редом. Детаљан опис аргумената и понашања може уследити. Затим, докниска може укључити и интерактиван пример који позива функцију:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">збирБројева</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Враћа збир првих n природних бројева.</span>
+<span class="gp">...</span><span class="sd"></span>
+<span class="gp">... </span><span class="sd">    &gt;&gt;&gt; збирБројева(10)</span>
+<span class="gp">... </span><span class="sd">    55</span>
+<span class="gp">... </span><span class="sd">    &gt;&gt;&gt; збирБројева(100)</span>
+<span class="gp">... </span><span class="sd">    5050</span>
+<span class="gp">... </span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="n">збир</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">збир</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">збир</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">збир</span>
+</pre></div>
+</div>
+<p>Онда, интеракција може бити проверена кроз <a class="reference external" href="http://docs.python.org/3/library/doctest.html">доктест модул</a>. Испод, <code class="docutils literal notranslate"><span class="pre">globals</span></code> функција враћа приказ глобалног окружења, који је неопходан интерпретатору за вредновање израза.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">doctest</span> <span class="kn">import</span> <span class="n">testmod</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">testmod</span><span class="p">()</span>
+<span class="go">TestResults(failed=0, attempted=0)</span>
+</pre></div>
+</div>
+<p>Да би се проверила доктест интеракције на само једној функцији, користи се доктест функција под називом <code class="docutils literal notranslate"><span class="pre">run_docstring_examples</span></code>. Ова функција је (нажалост) нешто сложенија за позивање. Њен први аргумент је функција која се тестира. Други аргумент је резултат који враћа позив уграђене Пајтонове функције <code class="docutils literal notranslate"><span class="pre">globals()</span></code>. Трећи аргумент је <code class="docutils literal notranslate"><span class="pre">True</span></code> да назначи „опширан” излаз: списак свих покренутих тестова.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">doctest</span> <span class="kn">import</span> <span class="n">run_docstring_examples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run_docstring_examples</span><span class="p">(</span><span class="n">збирБројева</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
+<span class="go">Finding tests in NoName</span>
+<span class="go">Trying:</span>
+<span class="go">    збирБројева(10)</span>
+<span class="go">Expecting:</span>
+<span class="go">    55</span>
+<span class="go">ok</span>
+<span class="go">Trying:</span>
+<span class="go">    збирБројева(100)</span>
+<span class="go">Expecting:</span>
+<span class="go">    5050</span>
+<span class="go">ok</span>
+</pre></div>
+</div>
+<p>Када се враћена вредност функције не поклапа са очекиваним резултатом <code class="docutils literal notranslate"><span class="pre">run_docstring_examples</span></code> функција ће пријавити овај проблем као неуспешан тест.</p>
+<p>Када је Пајтон код записан у датотеци, сви тестови из датотеке се могу покренути уз Пајтонову доктест опцију у командној линији:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">doctest</span> <span class="o">&lt;</span><span class="n">имеДатотеке</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Кључно за делотворно тестирање јесте писати (и покретати) тестове непосредно након имплементације нових функција. Добра је пракса написати неке тестове чак и пре имплементације, како би постојали неки примери улаза и излаза. Тестови који позивају једну функцију се називају <em>јединични тестови</em> (енг. unit tests) и део су методе такозваног модуларног тестирања. Исцрпни јединични тестови и модуларно тестирање су заштитни знак добро испројектованог програма.</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Садржај</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Управљање</a><ul>
+<li><a class="reference internal" href="#statements">Наредбе</a></li>
+<li><a class="reference internal" href="#compoundstatements">Сложене наредбе</a></li>
+<li><a class="reference internal" href="#ii">Дефинисање функција II: локална додела</a></li>
+<li><a class="reference internal" href="#conditionalstatements">Условне наредбе</a><ul>
+<li><a class="reference internal" href="#id5">Условне наредбе</a></li>
+<li><a class="reference internal" href="#id6">Логички контекст</a></li>
+<li><a class="reference internal" href="#id7">Логичке вредности</a></li>
+<li><a class="reference internal" href="#id8">Логички оператори</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iteration">Итерација</a></li>
+<li><a class="reference internal" href="#testing">Тестирање</a><ul>
+<li><a class="reference internal" href="#id11">Провере</a></li>
+<li><a class="reference internal" href="#id12">Доктестови</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="4-%D0%BF%D1%80%D0%BE%D1%98%D0%B5%D0%BA%D1%82%D0%BE%D0%B2%D0%B0%D1%9A%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html"
+                        title="претходна глава">Пројектовање функција</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="6-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5-%D0%B2%D0%B8%D1%88%D0%B5%D0%B3-%D1%80%D0%B5%D0%B4%D0%B0.html"
+                        title="наредна глава">Функције вишег реда</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава1/5-управљање.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="6-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B5-%D0%B2%D0%B8%D1%88%D0%B5%D0%B3-%D1%80%D0%B5%D0%B4%D0%B0.html" title="Функције вишег реда"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="4-%D0%BF%D1%80%D0%BE%D1%98%D0%B5%D0%BA%D1%82%D0%BE%D0%B2%D0%B0%D1%9A%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%98%D0%B0.html" title="Пројектовање функција"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Апстракција функцијама</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Управљање</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Апстракција података &#8212; документација Компоновање рачунарских програма прво штампано</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="next" title="Секвенце" href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html" />
+    <link rel="prev" title="Увод" href="1-%D1%83%D0%B2%D0%BE%D0%B4.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">индекс</a></li>
+        <li class="right" >
+          <a href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html" title="Секвенце"
+             accesskey="N">напред</a> |</li>
+        <li class="right" >
+          <a href="1-%D1%83%D0%B2%D0%BE%D0%B4.html" title="Увод"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Апстракција подацима</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Апстракција података</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dataabstraction">
+<span id="id1"></span><h1>Апстракција података<a class="headerlink" href="#dataabstraction" title="Permalink to this headline">¶</a></h1>
+<p>Док се разматра широк скуп ствари у свету који нас окружује које би било корисно представити у програмима, открива се да већина њих има сложену структуру. На пример, географски положај се састоји из географске ширине и географске висине које образују пар, сложену вредност података којом програми могу руковати као појмовном јединицом, али која се такође састоји из два дела који се могу посматрати појединачно.</p>
+<p>Употреба сложених података омогућава повећање модуларности програма. Уколико је могуће руковати географским положајима као целинама, тада је могуће заштитити делове програма који обављају израчунавања над положајима од појединости везаних за то како су ти положаји представљени. Општа техника изолације делова програма који се баве начином на који су подаци представљени од делова који се баве како се тим подацима манипулише је моћна методологија пројектовања која се назива <em>апстракција података</em>. Апстракција података у многоме олакшава пројектовање, одржавање и измену програма.</p>
+<p>Апстракција података је по карактеру слична функционалној апстракцији. Приликом прављења функционалне апстракције, појединости о томе како се функција имплементира могу се потиснути, а сама та функција може бити замењена било којом другом функцијом са истим свеукупним понашањем. Другим речима, могуће је направити апстракцију која раздваја начин на који се функција употребљава од појединости о томе како је функција имплементирана. Аналогно томе, апстракција података изолује начин употребе сложених вредности података од појединости како су заправо ти подаци изграђени.</p>
+<p>Основна идеја апстракције података је такво устројство програма да они оперишу над апстрактним подацима. Односно, програми треба да користе податке на такав начин да праве што је могуће мање претпоставки о тим подацима. Истовремено, конкретна представа податка је дефинисана као независни део програма.</p>
+<p>Ова два дела програма, део који оперише над апстрактним подацима и део који дефинише њихову конкретну представу, су повезани малобројним скупом функција које имплементирају апстрактне податке у погледу конкретне представе. Ради илустрације ове технике, биће размотрено како пројектовати скуп функција за баратање рационалним бројевима.</p>
+<div class="section" id="examplerationalnumbers">
+<span id="id2"></span><h2>Пример: рационални бројеви<a class="headerlink" href="#examplerationalnumbers" title="Permalink to this headline">¶</a></h2>
+<p>Рационалан број је заправо однос (разломак) целих бројева. Рационални бројеви су важна поткласа реалних бројева. Разломци, као што су 1/3 или 17/29 се обично пишу као:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">бројилац</span><span class="o">&gt;/&lt;</span><span class="n">именилац</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>где оба поља и <code class="docutils literal notranslate"><span class="pre">&lt;бројилац&gt;</span></code> и <code class="docutils literal notranslate"><span class="pre">&lt;именилац&gt;</span></code> представљају места за целобројне вредности. Наравно, оба су неопходна да би се тачно окарактерисала вредност рационалног броја. Заправо, дељењем целих бројева добија се <code class="docutils literal notranslate"><span class="pre">float</span></code> апроксимативна вредност у покретном зарезу чиме се губи на прецизности представе.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+<span class="go">0.3333333333333333</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span> <span class="o">==</span> <span class="mf">0.333333333333333300000</span>  <span class="c1"># Дељење целобројних вредности је апроксимативно</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Међутим, могуће је направити тачан приказ рационалних бројева комбиновањем бројиоца и имениоца.</p>
+<p>Познато је још из функционалних апстракција да се може почети са плодотворним програмирањем пре него што су имплементирани неки делови програма. Стога, претпоставимо за почетак да већ постоји начин да се направи рационалан број помоћу имениоца и делиоца. Такође, разумна је и претпоставка да за дати рационални број постоји начин да се изабере бројилац и именилац. Коначно, претпоставимо да су конструктор и селектори доступни као следеће три функције:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">разломак(б,</span> <span class="pre">и)</span></code> враћа рационални број са бројиоцем <code class="docutils literal notranslate"><span class="pre">б</span></code> и имениоцем <code class="docutils literal notranslate"><span class="pre">и</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">бројилац(x)</span></code> враћа бројилац рационалног броја <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">именилац(x)</span></code> враћа именилац рационалног броја <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<p>Овде је искоришћена моћна стратегија за пројектовање програма: <em>пуштање машти на вољу</em> или <em>узимање жељеног за стварно</em>. Још увек није речено како је рационални број представљен или како функције <code class="docutils literal notranslate"><span class="pre">разломак</span></code>, <code class="docutils literal notranslate"><span class="pre">бројилац</span></code> и <code class="docutils literal notranslate"><span class="pre">именилац</span></code> треба имплементирати. Чак и да ове три функције јесу дефинисане, могле би се употпунити функцијама за додавање, множење, исписивање, и проверу једнакости рационалних бројева:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">збирРазломака</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">бx</span><span class="p">,</span> <span class="n">иx</span> <span class="o">=</span> <span class="n">бројилац</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">именилац</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">бy</span><span class="p">,</span> <span class="n">иy</span> <span class="o">=</span> <span class="n">бројилац</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">именилац</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">разломак</span><span class="p">(</span><span class="n">бx</span> <span class="o">*</span> <span class="n">иy</span> <span class="o">+</span> <span class="n">бy</span> <span class="o">*</span> <span class="n">иx</span><span class="p">,</span> <span class="n">иx</span> <span class="o">*</span> <span class="n">иy</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">производРазломака</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">разломак</span><span class="p">(</span><span class="n">бројилац</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">бројилац</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">именилац</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">именилац</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">исписРазломка</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">бројилац</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">именилац</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">једнакостРазломака</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">бројилац</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">именилац</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">бројилац</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">именилац</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Сада имамо операције над рационалним бројевима дефинисане преко селекторских функција <code class="docutils literal notranslate"><span class="pre">бројилац</span></code> и <code class="docutils literal notranslate"><span class="pre">именилац</span></code>, и конструкторске функције <code class="docutils literal notranslate"><span class="pre">разломак</span></code>, иако ове функције тек треба да буду дефинисане. Оно што је потребно јесте начин да се бројилац и именилац заједно слепе у једну сложену вредност.</p>
+</div>
+<div class="section" id="pairs">
+<span id="id3"></span><h2>Парови<a class="headerlink" href="#pairs" title="Permalink to this headline">¶</a></h2>
+<p>Како би омогућио имплементацију конкретног нивоа апстракције података, Пајтон нуди сложену структуру под називом низ, која се може направити стављањем израза одвојених зарезима између угластих заграда. Такав израз се зове литерал низа.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="go">[10, 20]</span>
+</pre></div>
+</div>
+<p>Члановима низа се може приступити на два начина. Први начин је путем познате методе вишеструке доделе која распакује низ у чланове и повезује сваки члан на различито име.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">пар</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">пар</span>
+<span class="go">[10, 20]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">пар</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>Друга метода за приступање члановима низа јесте преко оператора за одабир чланова, такође израженог преко угластих заграда. За разлику од литерала низа, израз у угластим заградама који непосредно следи након неког израза се не вреднује у низовну вредност, већ уместо тога бира члан из вредности претходног израза.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">пар</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">пар</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>Низови у Пајтону (као и у многим другим програмским језицима) су 0-индексирани, што значи да индекс 0 означава први члан низа, индекс 1 означава други, и тако даље. Интуиција која подржава овај начин индексирања јесте да индекс заправо представља колико је одређени члан померен у односу на почетак низа.</p>
+<p>Функција еквивалентна оператору за одабир чланова се назива <code class="docutils literal notranslate"><span class="pre">getitem</span></code>, и она такође користи 0-индексиране позиције за одабир чланова низа.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">getitem</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getitem</span><span class="p">(</span><span class="n">пар</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getitem</span><span class="p">(</span><span class="n">пар</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>Двочлани низови нису једини начин представе парова у Пајтону. Било који начин спајања две вредности заједно у једну може се сматрати паром. Низови су уобичајен начин за то. Низови такође могу садржати и више од два члана, као што ће бити приказано касније у овом поглављу.</p>
+<div class="section" id="representingrationalnumbers">
+<span id="id4"></span><h3>Представљање рационалних бројева<a class="headerlink" href="#representingrationalnumbers" title="Permalink to this headline">¶</a></h3>
+<p>После свега, рационалан број се може представити као пар два цела броја: бројиоца и имениоца.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">разломак</span><span class="p">(</span><span class="n">б</span><span class="p">,</span> <span class="n">и</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">[</span><span class="n">б</span><span class="p">,</span> <span class="n">и</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">бројилац</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">именилац</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Заједно с раније дефинисаним аритметичким операцијама, могуће је манипулисати рационалним бројевима.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">половина</span> <span class="o">=</span> <span class="n">разломак</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">исписРазломка</span><span class="p">(</span><span class="n">половина</span><span class="p">)</span>
+<span class="go">1 / 2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">трећина</span> <span class="o">=</span> <span class="n">разломак</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">исписРазломка</span><span class="p">(</span><span class="n">производРазломака</span><span class="p">(</span><span class="n">половина</span><span class="p">,</span> <span class="n">трећина</span><span class="p">))</span>
+<span class="go">1 / 6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">исписРазломка</span><span class="p">(</span><span class="n">збирРазломака</span><span class="p">(</span><span class="n">трећина</span><span class="p">,</span> <span class="n">трећина</span><span class="p">))</span>
+<span class="go">6 / 9</span>
+</pre></div>
+</div>
+<p>Као што горњи пример показује, ова имплементација рационалних бројева не своди разломке на њихов најједноставнији облик, то јест облик у ком бројилац и именилац немају заједничких делитеља изузев јединице (односно, бројилац и именилац нису узајамно прости). Ова мана може се отклонити променом имплементације разломка. Уколико је при руци функција за израчунавање највећег заједничког делиоца (НЗД) два цела броја, тада се она може искористити за свођење имениоца и бројиоца на узајамно прост облик пре прављења пара. Као и многи други корисни алати, таква функција већ постоји у Пајтон стандардној библиотеци.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">разломак</span><span class="p">(</span><span class="n">б</span><span class="p">,</span> <span class="n">и</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">нзд</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">б</span><span class="p">,</span> <span class="n">и</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">б</span><span class="o">//</span><span class="n">нзд</span><span class="p">,</span> <span class="n">и</span><span class="o">//</span><span class="n">нзд</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Оператор целобројног дељења, <code class="docutils literal notranslate"><span class="pre">//</span></code>, одсеца децимални део резултата дељења. Ипак, пошто се зна да су и <code class="docutils literal notranslate"><span class="pre">б</span></code> и <code class="docutils literal notranslate"><span class="pre">и</span></code> дељиви са <code class="docutils literal notranslate"><span class="pre">нзд</span></code>, целобројно дељење је у овом случају егзактно јер не даје остатак. Ова прерађена имплементација разломка осигурава да се рационални бројеви изражавају у свом сведеном облику.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">исписРазломка</span><span class="p">(</span><span class="n">збирРазломака</span><span class="p">(</span><span class="n">трећина</span><span class="p">,</span> <span class="n">трећина</span><span class="p">))</span>
+<span class="go">2 / 3</span>
+</pre></div>
+</div>
+<p>Приказано побољшање је постигнуто изменом конструктора без промене у било којој функцији која имплементира стварне аритметичке операције.</p>
+</div>
+</div>
+<div class="section" id="abstractionbarriers">
+<span id="id5"></span><h2>Апстракцијске баријере<a class="headerlink" href="#abstractionbarriers" title="Permalink to this headline">¶</a></h2>
+<p>Пре изношења додатних примера сложених података и апстракција података, размотримо нека питања постављена у примеру рационалних бројева. Операције су дефинисане преко конструктора <code class="docutils literal notranslate"><span class="pre">разломак</span></code> и селектора <code class="docutils literal notranslate"><span class="pre">бројилац</span></code> и <code class="docutils literal notranslate"><span class="pre">именилац</span></code>. Уопштено говорећи, основна идеја апстракције података је идентификовање скупа основних операција преко којих ће бити изражено руковање вредностима неке врсте, а затим користити само те операције за баратање подацима. Ограничавањем броја и употребе операција на овај начин, далеко је лакше изменити представу апстрактних података у будућности (нпр. ради повећања ефикасности) без промене понашања програма.</p>
+<p>За рационалне бројеве, различити делови програма манипулишу рационалним бројевима користећи различите операције, како је описано у следећој табели.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 34%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Делови програма који…</p></th>
+<th class="head"><p>Рукују разломцима као…</p></th>
+<th class="head"><p>Користећи само…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Користе рационалне
+бројеве за рачунање</p></td>
+<td><p>целинама</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">збирРазломака</span></code>,
+<code class="docutils literal notranslate"><span class="pre">производРазломака</span></code>,
+<code class="docutils literal notranslate"><span class="pre">једнакостРазломака</span></code>,
+<code class="docutils literal notranslate"><span class="pre">исписРазломка</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Праве рационалне бројеве
+или имплементирају
+операције над њима</p></td>
+<td><p>имениоцима и бројиоцима</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">разломак</span></code>,
+<code class="docutils literal notranslate"><span class="pre">бројилац</span></code>,
+<code class="docutils literal notranslate"><span class="pre">именилац</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Имплементирају селекторе
+и конструктор за
+рационалне бројеве</p></td>
+<td><p>двочланим низовима</p></td>
+<td><p>литерале низа и
+оператор за
+одабир чланова</p></td>
+</tr>
+</tbody>
+</table>
+<p>У сваком од горњих слојева, односно врста у табели, функције у последњој колони намећу апстракцијску баријеру. Ове функције се позивају од стране вишег нивоа, а имплементирају користећи нижи ниво апстракције.</p>
+<p>До кршења апстракцијске баријере долази кад год део програма који може да користи функцију вишег нивоа уместо тога искористи функцију на нижем нивоу. Примера ради, функцију која израчунава квадрат рационалног броја најбоље је реализовати преко функције <code class="docutils literal notranslate"><span class="pre">производРазломака</span></code> која не чини никакве претпоставке о начину имплементације рационалног броја.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">квадратРазломка</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">производРазломака</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Директно обраћање бројиоцима и имениоцима би кршило једну апстракцијску баријеру.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">квадратРазломка_једнострукоКршење</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">разломак</span><span class="p">(</span><span class="n">бројилац</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">бројилац</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">именилац</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">именилац</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Претпоставка да су разломци представљени користећи се двочланим низовима би прекршило две апстракцијске баријере.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">квадратРазломка_двострукоКршење</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Апстракцијске баријере олакшавају одржавање и промену програма. Што је мање функција које зависе од одређеног начина представе, то је потребно мање измена када се та представа жели променити. Све претходне имплементације функције <code class="docutils literal notranslate"><span class="pre">квадратРазломка</span></code> имају истоветно и тачно понашање, али је само прва отпорна на будуће промене. Функцију <code class="docutils literal notranslate"><span class="pre">квадратРазломка</span></code> не би било потребно ажурирати чак и ако би се изменила представа рационалних бројева. Насупрот томе, функцију <code class="docutils literal notranslate"><span class="pre">квадратРазломка_једнострукоКршење</span></code> би требало мењати кад год се промене селектор или конструктор, док би функција <code class="docutils literal notranslate"><span class="pre">квадратРазломка_двострукоКршење</span></code> захтевала ажурирање приликом сваке промене имплементације рационалних бројева.</p>
+</div>
+<div class="section" id="thepropertiesofdata">
+<span id="id6"></span><h2>Својства података<a class="headerlink" href="#thepropertiesofdata" title="Permalink to this headline">¶</a></h2>
+<p>Апстракцијске баријере у многоме обликују начин размишљања о подацима. Исправна представа рационалног броја није ограничена на било коју одређену имплементацију (као што је двочлани низ) већ је то просто повратна вредност функције <code class="docutils literal notranslate"><span class="pre">разломак</span></code> која може бити прослеђена функцијама <code class="docutils literal notranslate"><span class="pre">бројилац</span></code> и <code class="docutils literal notranslate"><span class="pre">именилац</span></code>. Поред тога, мора постојати одговарајући однос између конструктора и селектора. То јест, ако се из целих бројева <code class="docutils literal notranslate"><span class="pre">б</span></code> и <code class="docutils literal notranslate"><span class="pre">и</span></code> направи рационалан број <code class="docutils literal notranslate"><span class="pre">x</span></code>, тада би требало и да је <code class="docutils literal notranslate"><span class="pre">бројилац(x)/именилац(x)</span></code> једнако <code class="docutils literal notranslate"><span class="pre">б/и</span></code>.</p>
+<p>Уопштено гледано, апстрактне податке је могуће изразити користећи се збирком селектора и конструктора, заједно са још неким условима понашања. Све док су услови понашања задовољени (попут горњег својства дељења), селектори и конструктори ће представљати ваљану представу одређене врсте податка. Појединости у имлементацији испод апстракцијске баријере се могу променити, али ако понашање остане исто, апстракција податка такође остаје важећа, а самим тим и сваки програм написан користећи ову апстракцију ће остати исправан.</p>
+<p>Ова тачка гледишта може бити широко примењена, укључујући ту и парове вредности који су коришћени за имплементацију рационалних бројева. Није много речено о томе шта је заправо пар, већ само да језик обезбеђује средства за прављење и манипулисање низовима са два члана. Неопходно понашање за имплементацију пара није ништа друго до тога да лепи две вредности заједно. Наведено преко стања понашања,</p>
+<ul class="simple">
+<li><p>Уколико је пар <code class="docutils literal notranslate"><span class="pre">п</span></code> направљен из вредности <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code>, тада <code class="docutils literal notranslate"><span class="pre">изабери(п,</span> <span class="pre">0)</span></code> враћа <code class="docutils literal notranslate"><span class="pre">x</span></code>, а <code class="docutils literal notranslate"><span class="pre">изабери(п,</span> <span class="pre">1)</span></code> враћа <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+</ul>
+<p>Заправо низ као тип податка и није потребан за прављење парова. Уместо тога, могу се иплементирати две функције <code class="docutils literal notranslate"><span class="pre">пар</span></code> и <code class="docutils literal notranslate"><span class="pre">изабери</span></code> које испуњавају претходни опис подједнако као и двочлани низ.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">пар</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Враћа функцију која представља пар.&quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">узми</span><span class="p">(</span><span class="n">индекс</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">индекс</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">x</span>
+<span class="gp">... </span>        <span class="k">elif</span> <span class="n">индекс</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">y</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">узми</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">изабери</span><span class="p">(</span><span class="n">пар</span><span class="p">,</span> <span class="n">индекс</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Враћа члан на индексу индекс пара пар.&quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">пар</span><span class="p">(</span><span class="n">индекс</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Овом имплементацијом, могуће је стварање и манипулисање паровима.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">п</span> <span class="o">=</span> <span class="n">пар</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">изабери</span><span class="p">(</span><span class="n">п</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">изабери</span><span class="p">(</span><span class="n">п</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">14</span>
+</pre></div>
+</div>
+<p>Претходно коришћење функција вишег реда уопште не одговара интуитивној представи како подаци треба да изгледају. Упркос томе, ове функције довољно добро представљају пар у досадашњим програмима. Функције су саме по себи довољне за представљање сложених података.</p>
+<p>Смисао излагања функционалне представе пара није у томе да изнесе тврдњу по којој и сам Пајтон заправо то ради на овај начин (због ефикасности, низови су у стварности имплементирани директније), већ само да би могао радити и на овај начин. Функционална представа, иако нејасна и неразговетна, савршено је адекватна за представљање парова пошто задовољава све услове које парови морају да задовоље. Упражњавање апстракције података омогућава лак прелазак између различитих представа.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Садржај</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Апстракција података</a><ul>
+<li><a class="reference internal" href="#examplerationalnumbers">Пример: рационални бројеви</a></li>
+<li><a class="reference internal" href="#pairs">Парови</a><ul>
+<li><a class="reference internal" href="#representingrationalnumbers">Представљање рационалних бројева</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#abstractionbarriers">Апстракцијске баријере</a></li>
+<li><a class="reference internal" href="#thepropertiesofdata">Својства података</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Претходни одељак</h4>
+  <p class="topless"><a href="1-%D1%83%D0%B2%D0%BE%D0%B4.html"
+                        title="претходна глава">Увод</a></p>
+  <h4>Следећи одељак</h4>
+  <p class="topless"><a href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html"
+                        title="наредна глава">Секвенце</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ова страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/глава2/2-апстракција-података.rst.txt"
+            rel="nofollow">Изворни код</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигација</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >индекс</a></li>
+        <li class="right" >
+          <a href="3-%D1%81%D0%B5%D0%BA%D0%B2%D0%B5%D0%BD%D1%86%D0%B5.html" title="Секвенце"
+             >напред</a> |</li>
+        <li class="right" >
+          <a href="1-%D1%83%D0%B2%D0%BE%D0%B4.html" title="Увод"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">документација Компоновање рачунарских програма прво штампано</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Апстракција подацима</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Апстракција података</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020-2021, Владимир Миловановић.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>
