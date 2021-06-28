@@ -411,8 +411,9 @@
 </pre></div>
 </div>
 <p>Међутим, шта када је референца двосмислена, као што је референца на методу <code class="docutils literal notranslate"><span class="pre">подигни</span></code> која је дефинисана и у <code class="docutils literal notranslate"><span class="pre">Рачун</span></code> и у <code class="docutils literal notranslate"><span class="pre">ТекућиРачун</span></code>? Доњи дијаграм приказује граф наслеђивања за класу <code class="docutils literal notranslate"><span class="pre">ПромотивниРачун</span></code>. Свака стрелица показује од поткласе до основне класе.</p>
-<img alt="../_images/multiple_inheritance.png" class="align-center" src="../_images/multiple_inheritance.png" />
-<p>За једноставан облик „дијаманта” попут овог, Пајтон разрешава имена слева надесно, а затим нагоре. У овом примеру Пајтон проверава име атрибута у следећим класама, редо(следо)м, све док се не пронађе атрибут са тим именом:</p>
+<div class="figure" style="text-align: center">
+<p><img  src="../_images/tikz-ae852c2e2ea9268d4fe6779e91a91f00a23ddd4a.svg" alt="Figure made with TikZ" /></p>
+</div><p>За једноставан облик „дијаманта” попут овог, Пајтон разрешава имена слева надесно, а затим нагоре. У овом примеру Пајтон проверава име атрибута у следећим класама, редо(следо)м, све док се не пронађе атрибут са тим именом:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ПромотивниРачун</span><span class="p">,</span> <span class="n">ТекућиРачун</span><span class="p">,</span> <span class="n">ШтедниРачун</span><span class="p">,</span> <span class="n">Рачун</span><span class="p">,</span> <span class="nb">object</span>
 </pre></div>
 </div>
