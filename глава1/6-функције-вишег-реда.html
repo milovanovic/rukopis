@@ -269,7 +269,7 @@
 <div class="section" id="functionsasreturnedvalues">
 <span id="id7"></span><h2>Функције као повратне вредности<a class="headerlink" href="#functionsasreturnedvalues" title="Permalink to this headline">¶</a></h2>
 <p>Могуће је постићи још више изражајне снаге у програмима пишући функције чије повратне вредности су такође функције. Важна одлика програмских језика који подржавају лексичку област видљивости јесте да локално дефинисане функције одржавају родитељско окружење када су враћене. Следећи пример илуструје корисност овог својства.</p>
-<p>У неком тренутку када је дефинисан већи број једноставних функција, <em>композиција</em> функција је природна метода комбиновања коју треба укључити у програмски језик. Односно, ако су дате две функције <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> и <code class="docutils literal notranslate"><span class="pre">g(x)</span></code>, може се дефинисати <code class="docutils literal notranslate"><span class="pre">h(x)</span> <span class="pre">=</span> <span class="pre">f(g(x))</span></code>. Композицију функција је могуће дефинисати коришћењем постојећих алата:</p>
+<p>У неком тренутку када је дефинисан већи број једноставних функција, <a class="reference external" href="http://sr.wikipedia.org/wiki/Композиција_функција">композиција функција</a> је природна метода комбиновања коју треба укључити у програмски језик. Односно, ако су дате две функције <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> и <code class="docutils literal notranslate"><span class="pre">g(x)</span></code>, може се дефинисати <code class="docutils literal notranslate"><span class="pre">h(x)</span> <span class="pre">=</span> <span class="pre">f(g(x))</span></code>. Композицију функција је могуће дефинисати коришћењем постојећих алата:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">композиција1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -294,7 +294,7 @@
 <p>У овом тренутку почињу да се опажају предности које прецизно дефинисан модел окружења за израчунавања доноси. Наиме, претходни модел окружења у потпуности објашњава могућност враћања функција.</p>
 </div>
 <div class="section" id="examplenewtonsmethod">
-<span id="id8"></span><h2>Пример: Њутнова метода<a class="headerlink" href="#examplenewtonsmethod" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>Пример: Њутнова метода<a class="headerlink" href="#examplenewtonsmethod" title="Permalink to this headline">¶</a></h2>
 <p>Овај проширен пример приказује како функције као повратне вредности и локалне дефиниције могу бити комбиноване да сажето изразе опште идеје. Биће имплементиран алгоритам који има широку примену у нумеричком израчунавању и оптимизацији.</p>
 <p>Њутнова метода је класичан итеративни приступ за израчунавање <em>корена</em> математичких функција, односно вредности аргумента за који је вредност функције једнака нули. Налажење <em>нула</em> неке функције често је еквивалентно решавању неког другог проблема од интереса, као што је израчунавање квадратног корена.</p>
 <p>Као мотивација за оно што следи може послужити и чињеница да се често здраво за готово узима да је једноставно израчунати квадратни корен. Не само Пајтон, већ и телефон, интернет прегледач, или калкулатор, могу то одрадити за вас. Међутим, део учења рачунарства јесте и разумевање како се овакве величине и функције могу израчунати. Општи приступ приказан надаље је применљив на решавање значајне класе једначина и далеко излази ван оквира онога што је уграђено у Пајтон.</p>
@@ -317,7 +317,7 @@
 </pre></div>
 </div>
 <div class="section" id="computingroots">
-<span id="id9"></span><h3>Израчунавање корена<a class="headerlink" href="#computingroots" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>Израчунавање корена<a class="headerlink" href="#computingroots" title="Permalink to this headline">¶</a></h3>
 <p>Користећи Њутнову методу, могуће је израчунати корен произвољног степена <span class="math notranslate nohighlight">\(n\)</span>. Корен <span class="math notranslate nohighlight">\(n\)</span>-тог степена неког броја <span class="math notranslate nohighlight">\(a\)</span>, односно <span class="math notranslate nohighlight">\(n\)</span>-ти корен од <span class="math notranslate nohighlight">\(a\)</span>, јесте <span class="math notranslate nohighlight">\(x\)</span> такво да је <span class="math notranslate nohighlight">\(x \cdot x \cdot x \cdot\ldots\cdot x = x^n = a\)</span>. На пример,</p>
 <ul class="simple">
 <li><p>квадратни (други) корен од 64 је 8, зато што је <span class="math notranslate nohighlight">\(8 \cdot 8 = 64\)</span>.</p></li>
@@ -374,7 +374,7 @@
 </div>
 </div>
 <div class="section" id="currying">
-<span id="id10"></span><h2>Каринг<a class="headerlink" href="#currying" title="Permalink to this headline">¶</a></h2>
+<span id="id11"></span><h2>Каринг<a class="headerlink" href="#currying" title="Permalink to this headline">¶</a></h2>
 <p>Функције вишег реда могу се користити да претворе функцију која прима више аргумената у ланац функција од којих свака прима један аргумент. Конкретно, ако је дата функција <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">y)</span></code>, могуће је дефинисати функцију <code class="docutils literal notranslate"><span class="pre">g</span></code> такву да је <code class="docutils literal notranslate"><span class="pre">g(x)(y)</span></code> еквивалентно <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">y)</span></code>. Овде <code class="docutils literal notranslate"><span class="pre">g</span></code> представља функцију вишег реда која прима један аргумент <code class="docutils literal notranslate"><span class="pre">x</span></code> и враћа другу функцију која прима један аргумент <code class="docutils literal notranslate"><span class="pre">y</span></code>. Ова трансформација назива се <em>каринг</em>.</p>
 <p>Као пример, могуће је дефинисати каринговану варијанту <code class="docutils literal notranslate"><span class="pre">pow</span></code> функције:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">карингованСтепен</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -449,7 +449,7 @@
 </div>
 </div>
 <div class="section" id="lambdaexpressions">
-<span id="id11"></span><h2>Ламбда изрази<a class="headerlink" href="#lambdaexpressions" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>Ламбда изрази<a class="headerlink" href="#lambdaexpressions" title="Permalink to this headline">¶</a></h2>
 <p>До сада, сваки пут када је дефинисана нова функција, било је неопходно дати јој име. За друге врсте израза, није било потребе да се међурезултати израчунавања именују. Односно, могуће је израчунати <code class="docutils literal notranslate"><span class="pre">a*b</span> <span class="pre">+</span> <span class="pre">c*d</span></code> без обавезе именовања подизраза <code class="docutils literal notranslate"><span class="pre">a*b</span></code> или <code class="docutils literal notranslate"><span class="pre">c*d</span></code>, или пак целог израза. У Пајтону, могуће је направити функције у лету користећи <code class="docutils literal notranslate"><span class="pre">lambda</span></code> изразе који се вреднују у неименоване функције. Ламбда израз се вреднује у функцију која у свом телу враћа један израз. Наредбе доделе и управљања, као што су петље, нису дозвољене.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">композиција1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -490,7 +490,7 @@
 <p>Упркос својој необичној етимологији, ламбда изрази и одговарајући формалан језик за апликацију функција, ламбда рачун, су основни концепти у рачунарству и сежу далеко изнад Пајтонове програмерске заједнице. Ова тема поново ће бити актуелна у трећем поглављу током проучавања пројектовања интерпретатора.</p>
 </div>
 <div class="section" id="abstractionsandfirst-classfunctions">
-<span id="id14"></span><h2>Апстракције и првокласне функције<a class="headerlink" href="#abstractionsandfirst-classfunctions" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>Апстракције и првокласне функције<a class="headerlink" href="#abstractionsandfirst-classfunctions" title="Permalink to this headline">¶</a></h2>
 <p>Овај одељак је започет запажањем да су кориснички дефинисане функције кључни механизам апрстракције зато што дозвољавају изражавање општих метода израчунавања као експлицитних елемената у програмском језику. Касније је приказано како функције вишег реда дозвољавају руковање овим општим методама да би се створиле више апстракције.</p>
 <p>Програмери би требали да буду спремни да уоче сваку прилику за потенцијалну апстракцију у својим програмима, а затим да је искористе и уопште их тако што ће створити још моћније апстракције. Ово не значи да увек треба писати програме на најапстрактинији могући начин. Искусни програмери знају да изаберу ниво апстракције који је примерен за одређени задатак. Ипак, важно је имати могућност размишљања у правцу и смислу ових апстракција како би били спремни за њихову примену у новом контексту или сценарију. Значај функција вишег реда је да оне омогућавају представљање апстракција експлицитно као елементе програмских језика па се њима може баратати баш као и са осталим рачунским елементима.</p>
 <p>Уопштено, програмски језици намећу ограничења у начину на који се рачунским елементима може руковати. За елементе са најмањим ограничењима се каже да имају првокласни положај. Нека од „права и повластица” првокласних елемената су:</p>
@@ -503,7 +503,7 @@
 <p>Пајтон додељује функцијама пун првокласни положај и резултујући добитак у изражајној моћи је огроман.</p>
 </div>
 <div class="section" id="functiondecorators">
-<span id="id15"></span><h2>Декоратери функција<a class="headerlink" href="#functiondecorators" title="Permalink to this headline">¶</a></h2>
+<span id="id16"></span><h2>Декоратери функција<a class="headerlink" href="#functiondecorators" title="Permalink to this headline">¶</a></h2>
 <p>Пајтон обезбеђује посебну синтаксу, која се назива декоратер, за примену функција вишег реда као део извршавајућих <code class="docutils literal notranslate"><span class="pre">def</span></code> наредби. Можда најчешћи пример јесте такозвани траг.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">траг1</span><span class="p">(</span><span class="n">функција</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">омотач</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -532,7 +532,7 @@
 </div>
 <p>У пројектима везаним за овај рукопис, декоратери се користе за праћење као и за избор функције која ће бити позвана приликом покретања програма из командне линије.</p>
 <div class="section" id="extraforexperts">
-<span id="id16"></span><h3>Додатак за стручњаке<a class="headerlink" href="#extraforexperts" title="Permalink to this headline">¶</a></h3>
+<span id="id17"></span><h3>Додатак за стручњаке<a class="headerlink" href="#extraforexperts" title="Permalink to this headline">¶</a></h3>
 <p>Симбол декоратера <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> може такође бити праћен изразом позива. Израз који следи након <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> се вреднује први (баш као што се назив <code class="docutils literal notranslate"><span class="pre">траг1</span></code> најпре вредновао горе), затим <code class="docutils literal notranslate"><span class="pre">def</span></code> наредба друга, и најзад повратна вредност вредновања декоратер израза бива примењена на новодефинисану функцију чији резултат је повезан са називом у <code class="docutils literal notranslate"><span class="pre">def</span></code> наредби.</p>
 </div>
 </div>

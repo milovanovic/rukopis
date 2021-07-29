@@ -417,7 +417,7 @@
 </div>
 <div class="section" id="trees">
 <span id="id19"></span><h2>Стабла<a class="headerlink" href="#trees" title="Permalink to this headline">¶</a></h2>
-<p>Могућност да се низови користе као чланови других низова пружа ново средство за комбиновање у програмском језику. Ова способност обично се зове <em>својство затворења</em> типа података. Уопштено говорећи, метода комбиновања вредности има својство затворења ако резултат комбиновања може и сам бити комбинован помоћу исте методе. Затворење је извор снаге у било ком начину комбинације јер омогућава стварање хијерархијских структура – структура састављених из делова који су и сами састављени из делова и тако даље.</p>
+<p>Могућност да се низови користе као чланови других низова пружа ново средство за комбиновање у програмском језику. Ова способност обично се зове <em>својство затворења</em> типа података. Уопштено говорећи, метода комбиновања вредности има својство затворења ако резултат комбиновања може и сам бити комбинован помоћу исте методе. <a class="reference external" href="http://sr.wikipedia.org/wiki/Затворење_(програмирање)">Затворење</a> је извор снаге у било ком начину комбинације јер омогућава стварање хијерархијских структура – структура састављених из делова који су и сами састављени из делова и тако даље.</p>
 <p>У дијаграмима окружења низови се могу визуализовати помоћу нотације са кућицама и показивачима. Низ је приказан преко узастопних правоугаоних поља, односно кућица које садрже чланове низа. Примитивне вредности као што су бројеви, ниске, логичке вредности, и <code class="docutils literal notranslate"><span class="pre">None</span></code> појављују се као чланови уоквирени кућицом. Сложене вредности, као што су вредности функција и други низови, означене су стрелицом, то јест показивачем.</p>
 <p>Угнежђивање низова унутар других низова може унети неке сложености. Такозвано <em>стабло</em> је основна апстракција података која намеће правилност у хијерархијском структуирању и манипулисању вредностима.</p>
 <p>Стабло има корен и секвенцу грана. Свака грана стабла је и сама стабло. Стабло без грана назива се лист. Свако стабло које се налази унутар стабла зове се подстабло датог стабла (као на пример, грана гране). Корен сваког подстабла неког стабла назива се чвором у том стаблу.</p>
@@ -491,7 +491,7 @@
 </pre></div>
 </div>
 <div class="section" id="partitiontrees">
-<span id="id20"></span><h3>Стабла партиција<a class="headerlink" href="#partitiontrees" title="Permalink to this headline">¶</a></h3>
+<span id="id21"></span><h3>Стабла партиција<a class="headerlink" href="#partitiontrees" title="Permalink to this headline">¶</a></h3>
 <p>Стабла се такође могу користити за представљање партиција природног броја. Стабло партиција природног броја <span class="math notranslate nohighlight">\(n\)</span> користећи се бројевима не већим од <span class="math notranslate nohighlight">\(m\)</span> је бинарно (двограно) стабло које представља изборе начињене током рачунања. У стаблу партиција:</p>
 <ul class="simple">
 <li><p>лева грана (индекс 0) садржи све начине партиционисања броја <span class="math notranslate nohighlight">\(n\)</span> користећи најмање једно <span class="math notranslate nohighlight">\(m\)</span>,</p></li>
@@ -561,7 +561,7 @@
 </div>
 </div>
 <div class="section" id="linkedlists">
-<span id="id21"></span><h2>Уланчане листе<a class="headerlink" href="#linkedlists" title="Permalink to this headline">¶</a></h2>
+<span id="id22"></span><h2>Уланчане листе<a class="headerlink" href="#linkedlists" title="Permalink to this headline">¶</a></h2>
 <p>До сада су само изворни типови коришћени за представљање секвенци. Међутим, такође се могу развити представе секвенци које нису уграђене у Пајтон. Уобичајена представа секвенце изграђене од угнежђених парова назива се <em>уланчана листа</em>. Дијаграм оркужења у наставку илуструје представу преко уланчане листе четворочлане секвенце која садржи 1, 2, 3 и 4.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">четири</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;празно&#39;</span><span class="p">]]]]</span>
 </pre></div>
@@ -637,7 +637,7 @@
 <p>Крајњи дијаграм окружења приказује локални оквир за позив функције <code class="docutils literal notranslate"><span class="pre">први</span></code>, који садржи име <code class="docutils literal notranslate"><span class="pre">с</span></code> повезано на исту уланчану подлисту. Функција <code class="docutils literal notranslate"><span class="pre">први</span></code> селектује вредност 2 и враћа је, а иста вредност ће бити враћена и од стране <code class="docutils literal notranslate"><span class="pre">вратиЧланУланчанеЛисте</span></code>.</p>
 <p>Овај пример показује уобичајени шаблон израчунавања са уланчаним листама, где сваки следећи корак у итерацији обрађује све краће суфиксе оригиналне уланчане листе. Ова постепена обрада ради проналажења дужине и чланова уланчаних листа изискује неко време израчунавања. Пајтонови уграђени типови секвенци су имплементирани на другачији начин у коме за израчунавање дужине секвенце и за дохватање њених чланова сложеност и цена израчунавања нису тако високи. Појединости те представе су ван оквира овог текста.</p>
 <div class="section" id="recursivemanipulation">
-<span id="id22"></span><h3>Рекурзивна обрада<a class="headerlink" href="#recursivemanipulation" title="Permalink to this headline">¶</a></h3>
+<span id="id23"></span><h3>Рекурзивна обрада<a class="headerlink" href="#recursivemanipulation" title="Permalink to this headline">¶</a></h3>
 <p>Обе функције, и <code class="docutils literal notranslate"><span class="pre">дужинаУланчанеЛисте</span></code> и <code class="docutils literal notranslate"><span class="pre">вратиЧланУланчанеЛисте</span></code> су итеративне. Оне скидају сваки слој угнежђеног пара све док се не дође до краја (у <code class="docutils literal notranslate"><span class="pre">дужинаУланчанеЛисте</span></code>) или жељеног члана (у <code class="docutils literal notranslate"><span class="pre">вратиЧланУланчанеЛисте</span></code>) уланчане листе. Дужина и избор чланова се такође могу имплементирати користећи се рекурзијом.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">дужинаУланчанеЛистеРекурзивно</span><span class="p">(</span><span class="n">с</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Враћа дужину уланчане листе с.&quot;&quot;&quot;</span>
@@ -720,7 +720,7 @@
 </div>
 </div>
 <div class="section" id="recursiveconstruction">
-<span id="id23"></span><h3>Рекурзивна конструкција<a class="headerlink" href="#recursiveconstruction" title="Permalink to this headline">¶</a></h3>
+<span id="id24"></span><h3>Рекурзивна конструкција<a class="headerlink" href="#recursiveconstruction" title="Permalink to this headline">¶</a></h3>
 <p>Уланчане листе се посебно користе приликом поступне изграње секвенци, што је ситуација која се често појављује код рекурзивних израчунавања.</p>
 <p>Функција <code class="docutils literal notranslate"><span class="pre">бројПартиција</span></code> са самог краја претходног поглавља враћала је број начина на који је могуће партиционисати природан број <span class="math notranslate nohighlight">\(n\)</span> користећи бројеве мање или једнаке <span class="math notranslate nohighlight">\(m\)</span> преко рекурзивног стабла. Преко секвенци, могуће је такође пребројити све партиције експлицитно користећи сличан поступак.</p>
 <p>Треба пратити исту рекурзивну анализу проблема као и код пребројавања: партиционисање броја <span class="math notranslate nohighlight">\(n\)</span> користећи бројеве не веће од <span class="math notranslate nohighlight">\(m\)</span> укључује или</p>

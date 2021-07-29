@@ -207,10 +207,10 @@
 </div>
 <p>Овај принцип – да је значење функције независно од имена параметара одабраних од стране њеног аутора -  има важне последице на програмске језике. Најпростија последица јесте да имена параметара функције морају остати локални за тело те функције.</p>
 <p>Уколико параметри не би били локални за тело њима одговарајуће функције, тада би параметар <code class="docutils literal notranslate"><span class="pre">x</span></code> у функцији <code class="docutils literal notranslate"><span class="pre">квадрат</span></code> могао бити побркан са параметром  <code class="docutils literal notranslate"><span class="pre">x</span></code> у <code class="docutils literal notranslate"><span class="pre">збирКвадрата</span></code>. Критично је да ово није случај: везе имена <code class="docutils literal notranslate"><span class="pre">x</span></code> у различитим локалним оквирима су неповезане. Модел израчунавања је пажљиво пројектован да осигура ову независност.</p>
-<p>Каже се да је <em>област видљивости</em> локалног имена ограничена на тело кориснички дефинисане функције која га дефинише. Када неко име више није доступно, оно је ван области видљивости. Ово понашање које се тиче видљивости није нова ставка у представљеном моделу већ је последица начина на који окружења раде.</p>
+<p>Каже се да је <a class="reference external" href="http://sr.wikipedia.org/wiki/Област_видљивости">област видљивости</a> локалног имена ограничена на тело кориснички дефинисане функције која га дефинише. Када неко име више није доступно, оно је ван области видљивости. Ово понашање које се тиче видљивости није нова ставка у представљеном моделу већ је последица начина на који окружења раде.</p>
 </div>
 <div class="section" id="choosingnames">
-<span id="id10"></span><h2>Избор имена<a class="headerlink" href="#choosingnames" title="Permalink to this headline">¶</a></h2>
+<span id="id11"></span><h2>Избор имена<a class="headerlink" href="#choosingnames" title="Permalink to this headline">¶</a></h2>
 <p>Заменљивост имена не подразумева да су имена формалних параметара потпуно неважна. Напротив, добро изабрана имена функције и параметара су кључна за читљивост и људску интерпретацију дефиниција функција!</p>
 <p>Следеће смернице су преузете из <a class="reference external" href="http://www.python.org/dev/peps/pep-0008">стилских путоказа за Пајтон код</a> који служи као водич за све (нејеретички и неодметнички настројене) Пајтон програмере. Заједнички скуп правила олакшава комуникацију међу члановима развојне заједнице. Као нуспојава праћења ових договора и споразума и сопствени код постаје све више и интерно конзистентан.</p>
 <ol class="arabic simple">
@@ -223,7 +223,7 @@
 <p>Постоји много изузетака од ових смерница чак и у самој Пајтон стандардној библиотеци. Као и речници природних језика, Пајтон је наследио речи које потичу од разних сарадника па крајњи резултат није увек конзистентан.</p>
 </div>
 <div class="section" id="functionsasabstractions">
-<span id="id12"></span><h2>Функције као апстракције<a class="headerlink" href="#functionsasabstractions" title="Permalink to this headline">¶</a></h2>
+<span id="id13"></span><h2>Функције као апстракције<a class="headerlink" href="#functionsasabstractions" title="Permalink to this headline">¶</a></h2>
 <p>Иако веома једноставан, <code class="docutils literal notranslate"><span class="pre">збирКвадрата</span></code> показује најмоћније својство кориснички дефинисаних функција. Функција <code class="docutils literal notranslate"><span class="pre">збирКвадрата</span></code> је дефинисана у смислу функције <code class="docutils literal notranslate"><span class="pre">квадрат</span></code>, али се ослања само на однос који <code class="docutils literal notranslate"><span class="pre">квадрат</span></code> дефинише између њених улазних аргумената и њених излазних вредности.</p>
 <p>Наиме, може се написати <code class="docutils literal notranslate"><span class="pre">збирКвадрата</span></code> неоптерећујући се <em>како</em> квадрирати број. Појединости како се рачуна квадрат се могу потиснути и одложити за касније разматрање. Збиља, што се <code class="docutils literal notranslate"><span class="pre">збирКвадрата</span></code> тиче, <code class="docutils literal notranslate"><span class="pre">квадрат</span></code> не представља посебно тело функције већ апстракцију функције, односно такозвану функционалну апстракцију. На овом нивоу апстракције, свака функција која исправно рачуна квадрат је подједнако добра.</p>
 <p>Тако, узимајући у обзир само вредности које враћају, следеће две функције за квадрирање броја су међусобно неразлучиве. Обе узимају бројевни аргумент и производе квадрат тог броја као вредност.</p>
@@ -235,7 +235,7 @@
 </div>
 <p>Другим речима, дефиниције функција треба да су у стању да потисну појединости. Корисници функције можда нису сами писали те функције већ су их добили од другог програмера као „црну кутију”. Нема потребе да програмер зна како је функција имлементирана да би је користио. Сама Пајтон библиотека има ову особину. Многи програмери користе функције које су тамо дефинисане, али мали број њих икада прегледа њихову имплементацију.</p>
 <div class="section" id="aspectsofafunctionalabstraction">
-<span id="id13"></span><h3>Аспекти функционалне апстракције<a class="headerlink" href="#aspectsofafunctionalabstraction" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>Аспекти функционалне апстракције<a class="headerlink" href="#aspectsofafunctionalabstraction" title="Permalink to this headline">¶</a></h3>
 <p>Да се савлада и усаврши коришћење функционалне апстракције, често је корисно размотрити три њена основна атрибута. Такозвани <em>домен</em> функције је скуп аргумената које узима. С друге стране, <em>опсег</em> функције је скуп свих вредности које функција може да врати. Коначно, <em>намера</em> функције је веза између улаза и израчунатих излаза (као и потенцијалних бочних ефеката које може имати). Разумевање функционалних апстракција кроз њихов домен, опсег и намеру је од пресудног значаја за њихову исправну употребу у сложеним програмима.</p>
 <p>На пример, свака функција <code class="docutils literal notranslate"><span class="pre">квадрат</span></code> коју користимо да имплементирамо <code class="docutils literal notranslate"><span class="pre">збирКвадрата</span></code> треба имати следеће особине:</p>
 <ul class="simple">
@@ -247,7 +247,7 @@
 </div>
 </div>
 <div class="section" id="operators">
-<span id="id14"></span><h2>Оператори<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>Оператори<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
 <p>Математички оператори (као што су <code class="docutils literal notranslate"><span class="pre">+</span></code> и <code class="docutils literal notranslate"><span class="pre">-</span></code>) обезбедили су прве примере методе комбиновања, али још увек нису дефинисани поступци вредновања израза који садрже ове операторе.</p>
 <p>Сваки Пајтон израз с инфиксним операторима има свој поступак вредновања, али се о њему може често размишљати као о скраћеници за одговарајући позивни израз. Када се види</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>

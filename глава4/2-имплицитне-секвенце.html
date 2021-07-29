@@ -547,7 +547,7 @@
 <span class="go">[9, 16, 25, 36, 49]</span>
 </pre></div>
 </div>
-<p>Користећи функцију <code class="docutils literal notranslate"><span class="pre">filterТок</span></code> може се дефинисати ток простих бројева помоћу такозваног <a class="reference external" href="https://sr.wikipedia.org/wiki/Ератостеново_сито">Ератостеновог сита</a>, које филтрира ток целих бројева како би уклонио све бројеве који су умношци његовог првог члана. Узастопним филтрирањем са сваким простим бројем, сви сложени бројеви уклањају се из тока.</p>
+<p>Користећи функцију <code class="docutils literal notranslate"><span class="pre">filterТок</span></code> може се дефинисати ток простих бројева помоћу такозваног <a class="reference external" href="http://sr.wikipedia.org/wiki/Ератостеново_сито">Ератостеновог сита</a>, које филтрира ток целих бројева како би уклонио све бројеве који су умношци његовог првог члана. Узастопним филтрирањем са сваким простим бројем, сви сложени бројеви уклањају се из тока.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">прости</span><span class="p">(</span><span class="n">природниТок</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">недељив</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="n">природниТок</span><span class="o">.</span><span class="n">први</span> <span class="o">!=</span> <span class="mi">0</span>
